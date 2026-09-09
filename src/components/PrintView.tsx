@@ -254,21 +254,22 @@ export const PrintView: React.FC<PrintViewProps> = ({ forceDisplay = false }) =>
                       {/* Uitgeklapte Inline Toelichting / Alternatieven / Handvatten */}
                       {item.link?.inline && (
                         <div
-                          className="mt-2 p-2.5 rounded border border-l-3 text-[7.5pt] leading-relaxed bg-white"
+                          className="print-inline-box mt-2 p-2.5 rounded-md border text-[7.5pt] leading-relaxed bg-[#F7EFE3]"
                           style={{
+                            borderLeftWidth: '3px',
                             borderLeftColor: theme.primary,
-                            borderColor: theme.border
+                            borderColor: '#E5DACB'
                           }}
                         >
                           <strong
-                            className="block font-bold text-[8pt] mb-1"
+                            className="block font-bold text-[7.5pt] mb-1 tracking-tight"
                             style={{ color: theme.labelColor }}
                           >
                             {item.link.label}:
                           </strong>
                           <div
                             dangerouslySetInnerHTML={{ __html: item.link.inline }}
-                            className="space-y-1"
+                            className="print-inline-content space-y-1 text-[7.5pt]"
                           />
                         </div>
                       )}
@@ -364,17 +365,17 @@ export const PrintView: React.FC<PrintViewProps> = ({ forceDisplay = false }) =>
             </div>
           </div>
 
-          {/* Contact & Rugdekking TG-SO */}
+          {/* Contact & Advies TG-SO */}
           <div className="p-3 rounded-lg border border-[#002630] bg-[#003340] text-[8pt] leading-relaxed text-white mb-3 shadow-none">
             <h3 className="text-[8.5pt] font-bold text-white uppercase tracking-wider mb-1 flex items-center gap-1.5">
               <Mail className="w-3.5 h-3.5 inline text-[#D3104C]" />
-              <span>Contact &amp; Advies: Themagroep Studentgerichte Omgeving (TG-SO)</span>
+              <span>Advies, sparren of professionalisering op maat?</span>
             </h3>
-            <p className="text-[#EDE6DA] mb-1.5">
-              Heb je als begeleider te maken met een complexe situatie, vermoed je stagediscriminatie, of heb je advies nodig over de beste aanpak of een driegesprek? De adviseurs van TG-SO bieden laagdrempelig advies, casuïstiekbegeleiding en rugdekking.
+            <p className="text-[#EDE6DA] mb-1.5 text-[7.5pt]">
+              Wil je sparren over een casus, heb je advies nodig of wil je voor jouw opleidingsteam een aanvraag doen voor professionalisering op maat? Neem contact op met de adviseurs van de Themagroep Studentgerichte Omgeving (TG-SO).
             </p>
-            <p className="font-medium text-white">
-              E-mail: <a href="mailto:TG-SO-adviseurs@hr.nl" className="underline font-bold text-white">TG-SO-adviseurs@hr.nl</a> · Ook voor ondersteuning en advies voor jouw opleidingsteam.
+            <p className="font-medium text-white text-[7.5pt]">
+              E-mail: <a href="mailto:TG-SO-adviseurs@hr.nl" className="underline font-bold text-white">TG-SO-adviseurs@hr.nl</a>
             </p>
             <div className="pt-1.5 mt-1.5 border-t border-white/20 text-[7.5pt] text-neutral-300">
               • <strong>Vertrouwenspersonen Ongewenste Omgangsvormen:</strong> Voor onafhankelijke opvang en meldingen.<br />
@@ -384,7 +385,7 @@ export const PrintView: React.FC<PrintViewProps> = ({ forceDisplay = false }) =>
 
           {/* Intro Bronnenlijst */}
           <p className="text-[7.5pt] text-[#5A5A55] leading-relaxed mb-2">
-            De in deze handreiking opgenomen handelingsperspectieven zijn gefundeerd op Nederlandse wetgeving, onderzoeken naar stagediscriminatie in het hbo en beleidskaders van Hogeschool Rotterdam.
+            De in deze aanpak opgenomen handelingsperspectieven zijn gefundeerd op Nederlandse wetgeving, onderzoeken naar stagediscriminatie in het hbo en beleidskaders van Hogeschool Rotterdam.
           </p>
 
           {/* APA Reference List */}

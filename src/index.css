@@ -76,4 +76,22 @@
   a[href]:after {
     content: none !important;
   }
+
+  /* Inline uitklap voorbeelden in print - forceer compacte lettergrootte */
+  .print-inline-box,
+  .print-inline-box *,
+  .print-inline-content,
+  .print-inline-content * {
+    font-size: 7.5pt !important;
+    line-height: 1.35 !important;
+  }
+}
+
+/* Zorg ook in schermpreview voor het juiste compacte formaat */
+.print-inline-box,
+.print-inline-box *,
+.print-inline-content,
+.print-inline-content * {
+  font-size: 7.5pt !important;
+  line-height: 1.35 !important;
 }
