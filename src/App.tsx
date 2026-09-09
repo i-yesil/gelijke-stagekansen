@@ -5,6 +5,8 @@ import { StepCardsOverview } from './components/StepCardsOverview';
 import { StepPanel } from './components/StepPanel';
 import { RedactieBar } from './components/RedactieBar';
 import { PrintView } from './components/PrintView';
+import { PrintModal } from './components/PrintModal';
+import { ContactCard } from './components/ContactCard';
 import { bouwstenen, STORAGE_KEY } from './data/bouwstenen';
 import { AppProgressState } from './types';
 
@@ -14,6 +16,7 @@ export default function App() {
   const [opdrachtGedaan, setOpdrachtGedaan] = useState<Record<number, boolean>>({});
   const [reflectie, setReflectie] = useState<string>('');
   const [editMode, setEditMode] = useState<boolean>(false);
+  const [showPrintModal, setShowPrintModal] = useState<boolean>(false);
 
   // Load state from localStorage on mount
   useEffect(() => {
@@ -96,7 +99,20 @@ export default function App() {
   };
 
   const handlePrint = () => {
-    window.print();
+    try {
+      window.focus();
+      window.print();
+    } catch (e) {
+      console.warn('Print blocked by iframe sandbox:', e);
+      setShowPrintModal(true);
+      return;
+    }
+
+    // In de ingesloten iframe preview van AI Studio wordt het systeempdf-venster vaak onderdrukt.
+    // We openen in dat geval direct de modal zodat de gebruiker alle pagina's kan zien en in een nieuw tabblad kan openen.
+    if (window.self !== window.top) {
+      setShowPrintModal(true);
+    }
   };
 
   const handleDownloadHTML = () => {
@@ -129,18 +145,7 @@ export default function App() {
 
       {/* Screen App Container */}
       <div className="no-print max-w-[1200px] mx-auto px-4 md:px-8 py-6 md:py-8">
-        <Header
-          onPrint={handlePrint}
-          editMode={editMode}
-          onToggleEdit={() => setEditMode(!editMode)}
-          onDownloadHTML={handleDownloadHTML}
-          showEditControls={editMode}
-        />
-
-        <RedactieBar
-          editMode={editMode}
-          onDownloadHTML={handleDownloadHTML}
-        />
+        <Header onPrint={handlePrint} />
 
         <Intro />
 
@@ -171,7 +176,7 @@ export default function App() {
                 Kies een van de bouwstenen hierboven om te starten
               </h3>
               <p className="text-sm text-[#5A5A55] max-w-md mx-auto mb-5">
-                Ontdek hoe je als stagebegeleider stagediscriminatie voorkomt, herkent, bespreekt en opvolgt binnen Hogeschool Rotterdam.
+                Ontdek hoe je als onderwijsprofessional stagediscriminatie voorkomt, herkent, bespreekt en opvolgt binnen Hogeschool Rotterdam.
               </p>
               <div className="flex justify-center gap-2.5 flex-wrap">
                 {bouwstenen.map((b) => (
@@ -193,11 +198,38 @@ export default function App() {
           )}
         </div>
 
-        {/* Footer */}
-        <footer className="pt-8 mt-12 border-t border-[#E8E4DA] text-center text-xs md:text-sm text-[#7A756E] italic">
-          <p>Hogeschool Rotterdam · Themagroep Studentgerichte Omgeving - 2026</p>
+        {/* Vaste, losgekoppelde contactkaart: Advies & ondersteuning TG-SO */}
+        <ContactCard />
+
+        {/* Footer met HR logo linksonder */}
+        <footer className="pt-8 pb-6 mt-12 border-t border-[#E8E4DA] flex items-center text-xs md:text-sm text-[#7A756E]">
+          <div className="flex items-center gap-3.5">
+            <img
+              src="/hr-logo.png"
+              alt="Hogeschool Rotterdam Logo"
+              className="h-10 md:h-12 w-auto object-contain shrink-0"
+            />
+            <div className="text-left not-italic">
+              <p className="font-bold text-[#003340] text-xs md:text-sm leading-tight">Hogeschool Rotterdam</p>
+              <p className="text-[11px] md:text-xs text-[#5A5A55]">Themagroep Studentgerichte Omgeving (TG-SO) 2026</p>
+            </div>
+          </div>
         </footer>
       </div>
+
+      {/* A4 Printvoorvertoning Modal */}
+      <PrintModal
+        isOpen={showPrintModal}
+        onClose={() => setShowPrintModal(false)}
+        onTriggerPrint={() => {
+          try {
+            window.focus();
+            window.print();
+          } catch (e) {
+            console.error('Print trigger failed:', e);
+          }
+        }}
+      />
     </div>
   );
 }

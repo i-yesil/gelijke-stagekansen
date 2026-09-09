@@ -484,19 +484,6 @@ export const StepPanel: React.FC<StepPanelProps> = ({
                 )}
               </div>
             </div>
-
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white p-5 rounded-xl border border-[#EDE6DA]">
-              <p className="text-xs md:text-sm text-[#5A5A55] leading-relaxed">
-                Wil je sparren over een casus, heb je advies nodig of wil je voor jouw opleidingsteam een aanvraag doen voor professionalisering op maat? Neem contact op met de adviseurs van de Themagroep Studentgerichte Omgeving (TG-SO).
-              </p>
-              <a
-                href="mailto:TG-SO-adviseurs@hr.nl?subject=Vraag%20over%20stagediscriminatie%20/%20professionalisering%20op%20maat"
-                className="inline-flex items-center gap-1.5 bg-[#D3104C] hover:bg-[#B41E4B] text-white px-4 py-2.5 rounded-md font-medium text-xs md:text-sm whitespace-nowrap transition-colors shadow-xs shrink-0"
-              >
-                <Mail className="w-4 h-4" />
-                <span>Neem contact op</span>
-              </a>
-            </div>
           </div>
         )}
 
