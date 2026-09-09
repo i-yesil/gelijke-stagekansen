@@ -17,13 +17,13 @@ export const StepCardsOverview: React.FC<StepCardsOverviewProps> = ({
 }) => {
   return (
     <section id="aanpak-stappen" className="my-6 md:my-8 scroll-mt-6">
-      {/* Section Header */}
-      <div className="mb-4 md:mb-5 border-b border-[#EAE4D8] pb-3">
+      {/* Section Header / Uitnodiging direct na de inleiding */}
+      <div className="mb-5 md:mb-6 border-b border-[#EAE4D8] pb-3.5">
         <h2 className="text-xl md:text-2xl font-black text-[#003340] tracking-tight">
-          Aanpak van stagediscriminatie in 5 stappen
+          Kies een van de bouwstenen hieronder om te starten
         </h2>
-        <p className="text-xs md:text-sm text-[#5A5A55] max-w-2xl mt-0.5">
-          Volg de aanbevolen volgorde of pak direct de stap die je vandaag nodig hebt.
+        <p className="text-xs md:text-sm text-[#5A5A55] max-w-2xl mt-1 leading-relaxed">
+          Ontdek hoe je als onderwijsprofessional stagediscriminatie voorkomt, herkent, bespreekt en opvolgt binnen Hogeschool Rotterdam.
         </p>
       </div>
 

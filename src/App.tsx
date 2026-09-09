@@ -157,9 +157,9 @@ export default function App() {
           onSelectStap={handleSelectStap}
         />
 
-        {/* Selected Step Panel */}
+        {/* Selected Step Panel (opent direct onder de stappen zodra een bouwsteen geselecteerd is) */}
         <div id="stap-panel-container">
-          {geselecteerdeBouwsteen ? (
+          {geselecteerdeBouwsteen && (
             <StepPanel
               stap={geselecteerdeBouwsteen}
               opdrachtGedaan={!!opdrachtGedaan[geselecteerdeBouwsteen.id]}
@@ -170,31 +170,6 @@ export default function App() {
               reflectieTekst={reflectie}
               onSaveReflectie={handleSaveReflectie}
             />
-          ) : (
-            <div className="p-8 text-center bg-white rounded-xl border border-[#EDE6DA] mb-8 shadow-xs">
-              <h3 className="text-lg font-bold text-[#003340] mb-2">
-                Kies een van de bouwstenen hierboven om te starten
-              </h3>
-              <p className="text-sm text-[#5A5A55] max-w-md mx-auto mb-5">
-                Ontdek hoe je als onderwijsprofessional stagediscriminatie voorkomt, herkent, bespreekt en opvolgt binnen Hogeschool Rotterdam.
-              </p>
-              <div className="flex justify-center gap-2.5 flex-wrap">
-                {bouwstenen.map((b) => (
-                  <button
-                    key={b.id}
-                    onClick={() => handleSelectStap(b.id)}
-                    className="px-4 py-2 rounded-lg font-semibold text-xs md:text-sm transition-all duration-150 hover:opacity-95 hover:scale-102 cursor-pointer shadow-xs border"
-                    style={{
-                      backgroundColor: b.kleur,
-                      borderColor: b.kleur,
-                      color: b.kleur === '#FCC200' ? '#003340' : '#ffffff'
-                    }}
-                  >
-                    {b.id}. {b.titel}
-                  </button>
-                ))}
-              </div>
-            </div>
           )}
         </div>
 
