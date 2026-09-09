@@ -65,7 +65,7 @@ export const bouwstenen: Bouwsteen[] = [
     titel: "Bewustwording en preventie",
     kleur: "#00B0F0",
     inleiding: "Bewustwording en preventie vormen het fundament. Het begint bij het tijdig herkennen en erkennen van stagediscriminatie: weten hóe het zich voordoet bij studenten, bij stagebedrijven én bij jezelf, nog vóórdat situaties escaleren. Preventie start met het doorbreken van de hardnekkige aanname dat 'het bij ons niet speelt'. Als begeleider speel je hierin een sleutelrol: je bereidt studenten voor en reflecteert op eigen blinde vlekken.",
-    korteToelichting: "Bewustwording en preventie vormen het fundament: het tijdig herkennen en erkennen van stagediscriminatie bij studenten, stagebedrijven én jezelf.",
+    korteToelichting: "Bewustwording en preventie vormen het fundament. Herken tijdig de signalen van stagediscriminatie en wees alert op eigen aannames.",
     verwachting: [
       {
         tekst: "<strong>Doorbreek de mythe</strong> dat stagediscriminatie bij jouw opleiding of stagebedrijven niet voorkomt. Weet dat het ontbreken van meldingen niet betekent dat er geen probleem is. Studenten melden zelden uit eigen beweging.",
@@ -123,7 +123,7 @@ export const bouwstenen: Bouwsteen[] = [
     titel: "Signalering",
     kleur: "#D3104C",
     inleiding: "Signaleren gaat verder dan wachten tot een student iets meldt. De meeste studenten komen niet uit zichzelf, uit schaamte, angst voor studievertraging, of omdat ze denken dat het 'erbij hoort'. Als begeleider heb jij de taak om actief te kijken en te luisteren in elke fase: bij het zoeken naar een stage, tijdens de sollicitatieperiode en gedurende de stage zelf. Extra alertheid is nodig bij stille, minder mondige studenten en bij kwetsbare groepen.",
-    korteToelichting: "Signaleren gaat verder dan wachten tot een student iets meldt. De meeste studenten komen niet uit zichzelf, uit schaamte, angst voor studievertraging, of omdat ze denken dat het 'erbij hoort'.",
+    korteToelichting: "Signaleren gaat verder dan wachten tot een student iets meldt. De meeste studenten komen niet uit zichzelf door schaamte of angst voor studievertraging.",
     verwachting: [
       {
         tekst: "<strong>Signaleer in de sollicitatiefase.</strong> Let op studenten die opvallend veel afwijzingen krijgen, niet op gesprek worden uitgenodigd, of geconfronteerd worden met onredelijke verzoeken (bijvoorbeeld de eis om een hoofddoek af te doen).",

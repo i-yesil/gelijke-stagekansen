@@ -143,100 +143,108 @@ export const OpdrachtGespreksvoering: React.FC<OpdrachtGespreksvoeringProps> = (
   const isAllesCorrect = isGecontroleerd && aantalCorrect === totaalKaarten;
 
   return (
-    <div className="bg-[#FBF7F1] border-2 border-[#C4D5DA] rounded-xl p-5 md:p-6 my-6 shadow-2xs">
-      <div className="flex items-center gap-2.5 mb-2 text-[#003340]">
-        <div className="w-6 h-6 rounded-full bg-[#003340] text-white flex items-center justify-center shadow-2xs">
-          <Target className="w-3.5 h-3.5" />
+    <div className="rounded-xl border-2 border-[#003340] overflow-hidden shadow-2xs bg-[#EDF3F5]">
+      {/* Themed Header Bar matching tegel 3 */}
+      <div className="bg-[#003340] text-white px-3.5 sm:px-4 py-2.5 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Target className="w-4 h-4 text-white shrink-0" />
+          <h3 className="text-xs sm:text-[13.5px] font-bold text-white tracking-wide">
+            Oefen het gesprek: Wat opent, wat sluit?
+          </h3>
         </div>
-        <h3 className="text-base md:text-lg font-bold text-[#003340]">Oefen het gesprek: Wat opent, wat sluit?</h3>
+        <span className="text-[9.5px] font-bold uppercase tracking-wider bg-white/20 text-white px-2 py-0.5 rounded-full">
+          Oefening Stap 3
+        </span>
       </div>
-      <p className="text-sm text-[#5A5A55] mb-4">
-        Oefen hoe jouw reactie het verschil maakt tussen een student die zich veilig voelt of dichtklapt.
-      </p>
 
-      {fase === 'deelA' ? (
-        <div className="bg-white border border-[#E8E4DA] rounded-lg p-5 shadow-2xs">
-          <div className="flex justify-between items-center text-xs text-[#7A756E] mb-3">
-            <span className="font-semibold uppercase tracking-wider text-[#003340]">Oefening 1 van 2</span>
-            <span>Kies jouw reactie</span>
-          </div>
+      <div className="p-3.5 sm:p-4">
+        <p className="text-xs text-[#003340]/80 mb-3">
+          Oefen hoe jouw reactie het verschil maakt tussen een student die zich veilig voelt of dichtklapt.
+        </p>
 
-          <div className="bg-[#F7EFE3] p-4 rounded-lg border border-[#EDE6DA] mb-4 text-[#003340]">
-            <p className="text-xs font-bold uppercase tracking-wider text-[#7A756E] mb-1">De student vertelt:</p>
-            <p className="italic text-sm leading-relaxed">
-              "{opdracht3DialoogA.studentTekst}"
-            </p>
-          </div>
-
-          <p className="text-xs md:text-sm font-semibold text-[#003340] mb-3">
-            Hoe reageer jij als begeleider?
-          </p>
-
-          <div className="space-y-2.5 mb-4">
-            {opdracht3DialoogA.reacties.map((r, i) => {
-              const isSelected = gekozenReactie === i;
-              return (
-                <button
-                  key={i}
-                  onClick={() => handleKiesReactie(i)}
-                  disabled={gekozenReactie !== null}
-                  className={`w-full text-left p-3.5 rounded-lg border text-sm leading-relaxed transition-all cursor-pointer ${
-                    isSelected
-                      ? r.effect === 'open'
-                        ? 'bg-[#EDFAF9] border-[#3AB7B0] text-[#003340] ring-2 ring-[#3AB7B0]/20 font-medium'
-                        : 'bg-[#FDEEF3] border-[#B41E4B] text-[#003340] ring-2 ring-[#B41E4B]/20 font-medium'
-                      : gekozenReactie !== null
-                      ? 'opacity-40 bg-gray-50 border-gray-200 cursor-not-allowed'
-                      : 'bg-white hover:bg-[#F7EFE3] border-[#E8E4DA] text-[#003340]'
-                  }`}
-                >
-                  {r.tekst}
-                </button>
-              );
-            })}
-          </div>
-
-          {gekozenReactie !== null && (
-            <div className="mt-4 p-4 bg-[#FBF7F1] border border-[#EDE6DA] rounded-lg text-sm leading-relaxed animate-in fade-in">
-              <div className="font-bold mb-1.5 flex items-center gap-1.5">
-                {opdracht3DialoogA.reacties[gekozenReactie].effect === 'open' ? (
-                  <>
-                    <CheckCircle2 className="w-4 h-4 text-[#3AB7B0]" />
-                    <span className="text-[#3AB7B0]">Goede reactie: Empathie &amp; Erkenning</span>
-                  </>
-                ) : (
-                  <>
-                    <AlertCircle className="w-4 h-4 text-[#B41E4B]" />
-                    <span className="text-[#B41E4B]">Valkuil: Oordeel (twijfel zaaien)</span>
-                  </>
-                )}
-              </div>
-              <p className="text-xs md:text-sm text-[#003340] mb-3">
-                {opdracht3DialoogA.reacties[gekozenReactie].uitleg}
-              </p>
-              <div className="flex justify-end">
-                <button
-                  onClick={() => setFase('deelB')}
-                  className="inline-flex items-center gap-1.5 bg-[#003340] hover:bg-[#004558] text-white px-4 py-2 rounded-md text-xs font-semibold cursor-pointer transition-colors"
-                >
-                  <span>Naar oefening 2: Categoriseer OMA, NIVEA &amp; Goede reactie</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </button>
-              </div>
+        {fase === 'deelA' ? (
+          <div className="bg-white border border-[#E8E4DA] rounded-lg p-3.5 sm:p-4 shadow-2xs">
+            <div className="flex justify-between items-center text-[11px] text-[#7A756E] mb-2.5">
+              <span className="font-bold uppercase tracking-wider text-[#003340]">Oefening 1 van 2</span>
+              <span>Kies jouw reactie</span>
             </div>
-          )}
-        </div>
-      ) : (
-        /* OEFENING 2: DE SLEEPOPDRACHT / CATEGORISEER-UITDAGING */
-        <div className="bg-white border border-[#E8E4DA] rounded-lg p-5 shadow-2xs">
-          <div className="flex justify-between items-center text-xs text-[#7A756E] mb-2">
-            <span className="font-semibold uppercase tracking-wider text-[#003340]">Oefening 2 van 2: Sleepopdracht</span>
-            <span>Wat valt onder OMA, NIVEA of een Goede reactie?</span>
-          </div>
 
-          <p className="text-xs md:text-sm text-[#5A5A55] mb-4">
-            Sleep de reacties naar de juiste categorie, of klik op een kaart en kies vervolgens een categorie. Zorg dat elke reactie in de juiste bak belandt.
-          </p>
+            <div className="bg-[#F7EFE3] p-3 rounded-lg border border-[#EDE6DA] mb-3 text-[#003340]">
+              <p className="text-[10.5px] font-bold uppercase tracking-wider text-[#7A756E] mb-1">De student vertelt:</p>
+              <p className="italic text-xs sm:text-[13px] leading-relaxed">
+                "{opdracht3DialoogA.studentTekst}"
+              </p>
+            </div>
+
+            <p className="text-xs sm:text-[13px] font-semibold text-[#003340] mb-2.5">
+              Hoe reageer jij als begeleider?
+            </p>
+
+            <div className="space-y-2 mb-3">
+              {opdracht3DialoogA.reacties.map((r, i) => {
+                const isSelected = gekozenReactie === i;
+                return (
+                  <button
+                    key={i}
+                    onClick={() => handleKiesReactie(i)}
+                    disabled={gekozenReactie !== null}
+                    className={`w-full text-left p-2.5 sm:p-3 rounded-lg border text-xs sm:text-[12.5px] leading-relaxed transition-all cursor-pointer ${
+                      isSelected
+                        ? r.effect === 'open'
+                          ? 'bg-[#EDFAF9] border-[#3AB7B0] text-[#003340] ring-2 ring-[#3AB7B0]/20 font-medium'
+                          : 'bg-[#FDEEF3] border-[#B41E4B] text-[#003340] ring-2 ring-[#B41E4B]/20 font-medium'
+                        : gekozenReactie !== null
+                        ? 'opacity-40 bg-gray-50 border-gray-200 cursor-not-allowed'
+                        : 'bg-white hover:bg-[#F7EFE3] border-[#E8E4DA] text-[#003340]'
+                    }`}
+                  >
+                    {r.tekst}
+                  </button>
+                );
+              })}
+            </div>
+
+            {gekozenReactie !== null && (
+              <div className="mt-3 p-3 bg-[#FBF7F1] border border-[#EDE6DA] rounded-lg text-xs leading-relaxed animate-in fade-in">
+                <div className="font-bold mb-1 flex items-center gap-1.5">
+                  {opdracht3DialoogA.reacties[gekozenReactie].effect === 'open' ? (
+                    <>
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#3AB7B0]" />
+                      <span className="text-[#3AB7B0]">Goede reactie: Empathie &amp; Erkenning</span>
+                    </>
+                  ) : (
+                    <>
+                      <AlertCircle className="w-3.5 h-3.5 text-[#B41E4B]" />
+                      <span className="text-[#B41E4B]">Valkuil: Oordeel (twijfel zaaien)</span>
+                    </>
+                  )}
+                </div>
+                <p className="text-xs text-[#003340] mb-2.5 leading-relaxed">
+                  {opdracht3DialoogA.reacties[gekozenReactie].uitleg}
+                </p>
+                <div className="flex justify-end">
+                  <button
+                    onClick={() => setFase('deelB')}
+                    className="inline-flex items-center gap-1 bg-[#003340] hover:bg-[#004558] text-white px-3 py-1.5 rounded-md text-xs font-semibold cursor-pointer transition-colors"
+                  >
+                    <span>Naar oefening 2: Categoriseer reacties</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        ) : (
+          /* OEFENING 2: DE SLEEPOPDRACHT / CATEGORISEER-UITDAGING */
+          <div className="bg-white border border-[#E8E4DA] rounded-lg p-3.5 sm:p-4 shadow-2xs">
+            <div className="flex justify-between items-center text-[11px] text-[#7A756E] mb-2">
+              <span className="font-bold uppercase tracking-wider text-[#003340]">Oefening 2 van 2: Categoriseer</span>
+              <span>OMA, NIVEA of Goede reactie?</span>
+            </div>
+
+            <p className="text-xs text-[#5A5A55] mb-3 leading-relaxed">
+              Sleep de reacties naar de juiste categorie, of klik op een kaart en kies een categorie.
+            </p>
 
           {/* BRON-POOL: TE VERDELEN KAARTEN */}
           <div
@@ -529,22 +537,23 @@ export const OpdrachtGespreksvoering: React.FC<OpdrachtGespreksvoeringProps> = (
         </div>
       )}
 
-      {/* FOOTER */}
-      <div className="mt-4 flex justify-between items-center">
-        <button
-          onClick={handleOpnieuw}
-          className="inline-flex items-center gap-1 text-xs text-[#5A5A55] hover:text-[#003340] border border-[#C9C4B8] hover:bg-[#F7EFE3] px-2.5 py-1.5 rounded cursor-pointer transition-colors"
-        >
-          <RotateCcw className="w-3 h-3" />
-          <span>Opnieuw doen vanaf Oefening 1</span>
-        </button>
+        {/* FOOTER */}
+        <div className="mt-4 flex justify-between items-center">
+          <button
+            onClick={handleOpnieuw}
+            className="inline-flex items-center gap-1 text-xs text-[#5A5A55] hover:text-[#003340] border border-[#C9C4B8] hover:bg-[#F7EFE3] px-2.5 py-1.5 rounded cursor-pointer transition-colors"
+          >
+            <RotateCcw className="w-3 h-3" />
+            <span>Opnieuw doen vanaf Oefening 1</span>
+          </button>
 
-        {isVoltooid && (
-          <span className="text-xs text-[#3AB7B0] font-semibold flex items-center gap-1">
-            <CheckCircle2 className="w-3.5 h-3.5" />
-            Voltooid
-          </span>
-        )}
+          {isVoltooid && (
+            <span className="text-xs text-[#3AB7B0] font-semibold flex items-center gap-1">
+              <CheckCircle2 className="w-3.5 h-3.5" />
+              Voltooid
+            </span>
+          )}
+        </div>
       </div>
     </div>
   );

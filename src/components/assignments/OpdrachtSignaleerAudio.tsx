@@ -358,218 +358,217 @@ export const OpdrachtSignaleerAudio: React.FC<OpdrachtSignaleerAudioProps> = ({
   const isAfgerond = huidig >= fragmenten.length;
 
   return (
-    <div className="bg-[#FBF7F1] border-2 border-[#F4C2D1] rounded-xl p-5 md:p-6 my-6 shadow-2xs">
-      <div className="flex items-center gap-2.5 mb-2 text-[#003340]">
-        <div className="w-6 h-6 rounded-full bg-[#D3104C] text-white flex items-center justify-center shadow-2xs">
-          <Target className="w-3.5 h-3.5" />
+    <div className="rounded-xl border-2 border-[#D3104C] overflow-hidden shadow-2xs bg-[#FDF2F5]">
+      {/* Themed Header Bar matching tegel 2 */}
+      <div className="bg-[#D3104C] text-white px-3.5 sm:px-4 py-2.5 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Target className="w-4 h-4 text-white shrink-0" />
+          <h3 className="text-xs sm:text-[13.5px] font-bold text-white tracking-wide">
+            Train je signaleringsspier
+          </h3>
         </div>
-        <h3 className="text-base md:text-lg font-bold text-[#003340]">Train je signaleringsspier</h3>
+        <span className="text-[9.5px] font-bold uppercase tracking-wider bg-white/20 text-white px-2 py-0.5 rounded-full">
+          Oefening Stap 2
+        </span>
       </div>
-      <p className="text-sm text-[#5A5A55] mb-4">
-        Luister naar de studentenervaring. Klik op ‘<strong>Signaleer</strong>’ telkens wanneer je een microagressie, subtiele uitsluiting of meldingsdrempel hoort.
-      </p>
 
-      {isAfgerond ? (
-        <div className="p-5 bg-[#EDFAF9] border border-[#3AB7B0]/30 rounded-lg text-center space-y-2">
-          <div className="w-10 h-10 rounded-full bg-[#3AB7B0]/20 text-[#3AB7B0] flex items-center justify-center mx-auto">
-            <CheckCircle2 className="w-6 h-6" />
-          </div>
-          <p className="text-sm md:text-base font-bold text-[#003340]">
-            Alle fragmenten succesvol doorlopen!
-          </p>
-          <p className="text-xs md:text-sm text-[#5A5A55] max-w-lg mx-auto">
-            Signaleren is een vaardigheid die groeit door actief te luisteren naar wat er tussen de regels gezegd wordt.
-          </p>
-        </div>
-      ) : (
-        <div className="bg-white border border-[#E8E4DA] rounded-lg p-5 shadow-2xs">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-3">
-            <div>
-              <span className="font-bold text-base md:text-lg text-[#003340]">{currentFrag.naam}</span>
+      <div className="p-3.5 sm:p-4">
+        <p className="text-xs text-[#003340]/80 mb-3">
+          Luister naar de studentenervaring. Klik op ‘<strong>Signaleer</strong>’ telkens wanneer je een microagressie, subtiele uitsluiting of meldingsdrempel hoort.
+        </p>
+
+        {isAfgerond ? (
+          <div className="p-4 bg-[#EDFAF9] border border-[#3AB7B0]/30 rounded-lg text-center space-y-2">
+            <div className="w-9 h-9 rounded-full bg-[#3AB7B0]/20 text-[#3AB7B0] flex items-center justify-center mx-auto">
+              <CheckCircle2 className="w-5 h-5" />
             </div>
-            <div className="flex items-center gap-2 self-end sm:self-center">
-              <span className="text-xs font-semibold text-[#7A756E] bg-[#F7EFE3] px-2.5 py-1 rounded">
-                Fragment {huidig + 1} van {fragmenten.length}
-              </span>
-            </div>
+            <p className="text-xs sm:text-sm font-bold text-[#003340]">
+              Alle fragmenten succesvol doorlopen!
+            </p>
+            <p className="text-xs text-[#5A5A55] max-w-lg mx-auto leading-relaxed">
+              Signaleren is een vaardigheid die groeit door actief te luisteren naar wat er tussen de regels gezegd wordt.
+            </p>
+            <button
+              onClick={handleOpnieuw}
+              className="mt-1 inline-flex items-center gap-1.5 text-xs text-[#D3104C] hover:underline font-semibold cursor-pointer"
+            >
+              <RotateCcw className="w-3 h-3" />
+              <span>Opnieuw proberen</span>
+            </button>
           </div>
+        ) : (
+          <div className="bg-white border border-[#E8E4DA] rounded-lg p-3.5 sm:p-4 shadow-2xs">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3 gap-2">
+              <div>
+                <span className="font-bold text-xs sm:text-[13.5px] text-[#003340]">{currentFrag.naam}</span>
+              </div>
+              <div className="flex items-center gap-2 self-end sm:self-center">
+                <span className="text-[10px] font-semibold text-[#7A756E] bg-[#F7EFE3] px-2 py-0.5 rounded">
+                  Fragment {huidig + 1} van {fragmenten.length}
+                </span>
+              </div>
+            </div>
 
-          {/* Audio Player Controls & Progress */}
-          <div className="bg-[#FAF6F0] border border-[#E8E4DA] rounded-lg p-3.5 mb-4">
-            <div className="flex items-center gap-3">
-              <button
-                onClick={handleTogglePlay}
-                id="btn-play-pause-audio"
-                className="w-10 h-10 rounded-full bg-[#D3104C] hover:bg-[#B41E4B] text-white flex items-center justify-center cursor-pointer transition-transform active:scale-95 shadow-sm flex-shrink-0"
-                aria-label={isPlaying ? 'Pauzeren' : 'Afspelen'}
-              >
-                {isPlaying ? (
-                  <Pause className="w-4 h-4 fill-current" />
-                ) : (
-                  <Play className="w-4 h-4 fill-current ml-0.5" />
-                )}
-              </button>
-
-              <button
-                onClick={handleHerstart}
-                id="btn-herstart-audio"
-                title="Herstart vanaf begin"
-                className="w-8 h-8 rounded-full border border-[#D5D0C5] text-[#5A5A55] hover:text-[#003340] hover:bg-white flex items-center justify-center cursor-pointer transition-colors flex-shrink-0"
-              >
-                <RotateCcw className="w-3.5 h-3.5" />
-              </button>
-
-              {/* Clickable Progress Bar */}
-              <div
-                ref={progressBarRef}
-                onClick={handleProgressClick}
-                className="relative flex-1 h-3 bg-[#E8E2D5] rounded-full overflow-hidden cursor-pointer group"
-                title="Klik om te spoelen"
-              >
-                <div
-                  className="h-full bg-[#D3104C] transition-all duration-100 relative"
-                  style={{ width: `${progressPercent}%` }}
+            {/* Audio Player Controls & Progress */}
+            <div className="bg-[#FAF6F0] border border-[#E8E4DA] rounded-lg p-2.5 sm:p-3 mb-3">
+              <div className="flex items-center gap-2.5">
+                <button
+                  onClick={handleTogglePlay}
+                  id="btn-play-pause-audio"
+                  className="w-9 h-9 rounded-full bg-[#D3104C] hover:bg-[#B41E4B] text-white flex items-center justify-center cursor-pointer transition-transform active:scale-95 shadow-sm flex-shrink-0"
+                  aria-label={isPlaying ? 'Pauzeren' : 'Afspelen'}
                 >
-                  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-white rounded-full shadow-xs opacity-0 group-hover:opacity-100" />
+                  {isPlaying ? (
+                    <Pause className="w-3.5 h-3.5 fill-current" />
+                  ) : (
+                    <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
+                  )}
+                </button>
+
+                <button
+                  onClick={handleHerstart}
+                  id="btn-herstart-audio"
+                  title="Herstart vanaf begin"
+                  className="w-7 h-7 rounded-full border border-[#D5D0C5] text-[#5A5A55] hover:text-[#003340] hover:bg-white flex items-center justify-center cursor-pointer transition-colors flex-shrink-0"
+                >
+                  <RotateCcw className="w-3 h-3" />
+                </button>
+
+                {/* Clickable Progress Bar */}
+                <div
+                  ref={progressBarRef}
+                  onClick={handleProgressClick}
+                  className="relative flex-1 h-2.5 bg-[#E8E2D5] rounded-full overflow-hidden cursor-pointer group"
+                  title="Klik om te spoelen"
+                >
+                  <div
+                    className="h-full bg-[#D3104C] transition-all duration-100 relative"
+                    style={{ width: `${progressPercent}%` }}
+                  >
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-white rounded-full shadow-xs opacity-0 group-hover:opacity-100" />
+                  </div>
+                </div>
+
+                {/* Time display */}
+                <div className="text-[11px] font-mono font-medium text-[#5A5A55] w-16 text-right flex-shrink-0">
+                  {formatTime(currentTime)} / {formatTime(duration)}
                 </div>
               </div>
-
-              {/* Time display */}
-              <div className="text-xs font-mono font-medium text-[#5A5A55] w-20 text-right flex-shrink-0">
-                {formatTime(currentTime)} / {formatTime(duration)}
-              </div>
             </div>
-          </div>
 
-          {/* Karaoke Transcript */}
-          <div className="text-xs md:text-sm leading-relaxed p-4 bg-[#FBF7F1] rounded-lg border border-[#EDE6DA] mb-5">
-            <div className="flex items-center justify-between text-[11px] uppercase tracking-wider font-bold text-[#7A756E] mb-2.5">
-              <div className="flex items-center gap-1.5">
-                <Volume2 className="w-3.5 h-3.5 text-[#D3104C]" />
-                <span>Transcript meelezen</span>
-              </div>
-              <span className="text-[10px] lowercase text-[#7A756E] font-normal italic">
-                (klik op een zin om direct daarnaartoe te springen)
-              </span>
-            </div>
-            {sentences.map((sentence, idx) => {
-              const isCurrent = activeSentenceIdx === idx;
-              const isFlagged = flaggedSentences.includes(idx);
-
-              return (
-                <span
-                  key={idx}
-                  onClick={() => handleSentenceClick(idx)}
-                  title="Klik om audio vanaf deze zin af te spelen"
-                  className={`inline transition-all duration-200 px-1.5 py-0.5 rounded cursor-pointer ${
-                    isFlagged
-                      ? 'bg-[#FCC200]/35 border-b-2 border-[#E59800] font-semibold text-[#003340]'
-                      : isCurrent
-                      ? 'bg-[#D3104C]/20 border-b-2 border-[#D3104C] font-semibold text-[#003340] shadow-2xs'
-                      : 'text-[#5A5A55] hover:bg-black/5 hover:text-[#003340]'
-                  }`}
-                >
-                  {sentence.trim()}{' '}
+            {/* Karaoke Transcript */}
+            <div className="text-xs sm:text-[12.5px] leading-relaxed p-3 bg-[#FBF7F1] rounded-lg border border-[#EDE6DA] mb-3.5">
+              <div className="flex items-center justify-between text-[10px] uppercase tracking-wider font-bold text-[#7A756E] mb-1.5">
+                <div className="flex items-center gap-1.5">
+                  <Volume2 className="w-3 h-3 text-[#D3104C]" />
+                  <span>Transcript meelezen</span>
+                </div>
+                <span className="text-[9.5px] lowercase text-[#7A756E] font-normal italic">
+                  (klik op een zin om ernaartoe te springen)
                 </span>
-              );
-            })}
-          </div>
+              </div>
+              {sentences.map((sentence, idx) => {
+                const isCurrent = activeSentenceIdx === idx;
+                const isFlagged = flaggedSentences.includes(idx);
 
-          {/* Large Interactive Signaleer Button */}
-          <div className="flex flex-col items-center justify-center gap-2 mb-3">
-            <button
-              onClick={handleSignaleerClick}
-              disabled={!isPlaying}
-              id="btn-signaleer-moment"
-              className={`px-8 py-3.5 rounded-xl font-bold text-base transition-all flex items-center gap-2 ${
-                isPlaying
-                  ? justSignaled
-                    ? 'bg-[#FCC200] text-[#003340] scale-105 shadow-lg ring-4 ring-[#FCC200]/40'
-                    : 'bg-[#B41E4B] hover:bg-[#D3104C] text-white shadow-md active:scale-95 cursor-pointer ring-4 ring-[#B41E4B]/20'
-                  : 'bg-gray-200 text-gray-400 cursor-not-allowed'
-              }`}
-            >
-              <AlertTriangle className="w-5 h-5" />
-              <span>Signaleer ({signalClicks.length})</span>
-            </button>
-            <p className="text-xs text-[#7A756E] h-4 font-medium">
-              {isPlaying
-                ? signalClicks.length > 0
-                  ? `✓ ${signalClicks.length} signaal/signalen gemarkeerd op dit tijdstip`
-                  : 'Klik zodra je iets opvallends of uitsluitends hoort'
-                : 'Klik eerst op de Start/Play knop hierboven om de audio te beluisteren'}
-            </p>
-          </div>
-
-          {/* Feedback Section */}
-          {showFeedback && (
-            <div className="mt-5 p-4 bg-[#FBF7F1] border border-[#EDE6DA] rounded-lg text-sm leading-relaxed animate-in fade-in">
-              <h4 className="font-bold text-[#003340] mb-2 flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-[#D3104C]" />
-                <span>Analyse van dit audiofragment</span>
-              </h4>
-
-              {flaggedSentences.length > 0 ? (
-                <div className="mb-3 p-3 bg-white border border-[#EDE6DA] rounded text-xs text-[#003340]">
-                  <span className="font-semibold text-[#00706B] flex items-center gap-1.5 mb-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5" />
-                    Jij hebt tijdens het luisteren {flaggedSentences.length} moment(en) gemarkeerd:
+                return (
+                  <span
+                    key={idx}
+                    onClick={() => handleSentenceClick(idx)}
+                    title="Klik om audio vanaf deze zin af te spelen"
+                    className={`inline transition-all duration-200 px-1 py-0.5 rounded cursor-pointer ${
+                      isFlagged
+                        ? 'bg-[#FCC200]/35 border-b-2 border-[#E59800] font-semibold text-[#003340]'
+                        : isCurrent
+                        ? 'bg-[#D3104C]/20 border-b-2 border-[#D3104C] font-semibold text-[#003340] shadow-2xs'
+                        : 'text-[#5A5A55] hover:bg-black/5 hover:text-[#003340]'
+                    }`}
+                  >
+                    {sentence.trim()}{' '}
                   </span>
-                  <ul className="list-disc pl-4 space-y-1 italic text-[#333]">
-                    {flaggedSentences.map((idx) => (
-                      <li key={idx}>"{sentences[idx].trim()}"</li>
+                );
+              })}
+            </div>
+
+            {/* Large Interactive Signaleer Button */}
+            <div className="flex flex-col items-center justify-center gap-1.5 mb-2.5">
+              <button
+                onClick={handleSignaleerClick}
+                disabled={!isPlaying}
+                id="btn-signaleer-moment"
+                className={`px-6 py-2 rounded-lg font-bold text-xs sm:text-[13px] transition-all flex items-center gap-2 ${
+                  isPlaying
+                    ? justSignaled
+                      ? 'bg-[#FCC200] text-[#003340] scale-105 shadow-md ring-2 ring-[#FCC200]/40'
+                      : 'bg-[#B41E4B] hover:bg-[#D3104C] text-white shadow-sm active:scale-95 cursor-pointer ring-2 ring-[#B41E4B]/20'
+                    : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                }`}
+              >
+                <AlertTriangle className="w-4 h-4" />
+                <span>Signaleer ({signalClicks.length})</span>
+              </button>
+              <p className="text-[11px] text-[#7A756E] min-h-[16px] font-medium text-center">
+                {isPlaying
+                  ? signalClicks.length > 0
+                    ? `✓ ${signalClicks.length} signaal/signalen gemarkeerd`
+                    : 'Klik zodra je iets opvallends of uitsluitends hoort'
+                  : 'Start eerst de audio om te beginnen'}
+              </p>
+            </div>
+
+            {/* Feedback Section */}
+            {showFeedback && (
+              <div className="mt-4 p-3.5 bg-[#FBF7F1] border border-[#EDE6DA] rounded-lg text-xs leading-relaxed animate-in fade-in">
+                <h4 className="font-bold text-[#003340] mb-2 flex items-center gap-1.5 text-xs sm:text-[13px]">
+                  <Sparkles className="w-3.5 h-3.5 text-[#D3104C]" />
+                  <span>Analyse van dit audiofragment</span>
+                </h4>
+
+                {flaggedSentences.length > 0 ? (
+                  <div className="mb-2.5 p-2.5 bg-white border border-[#EDE6DA] rounded text-[11.5px] text-[#003340]">
+                    <span className="font-semibold text-[#00706B] flex items-center gap-1 mb-1">
+                      <CheckCircle2 className="w-3 h-3" />
+                      Jij hebt {flaggedSentences.length} moment(en) gemarkeerd:
+                    </span>
+                    <ul className="list-disc pl-3.5 space-y-0.5 italic text-[#333]">
+                      {flaggedSentences.map((idx) => (
+                        <li key={idx}>"{sentences[idx].trim()}"</li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : (
+                  <p className="text-[11.5px] text-[#7A756E] mb-2.5 p-2 bg-white rounded border border-[#EDE6DA]">
+                    Je hebt niet op Signaleer geklikt. Bekijk hieronder welke subtiele signalen in dit fragment verborgen zaten.
+                  </p>
+                )}
+
+                <div className="border-t border-[#E8E4DA] pt-2.5">
+                  <span className="text-[10.5px] font-bold text-[#003340] uppercase tracking-wider block mb-1.5">
+                    Signalen in dit fragment ({currentFrag.signalen.length}):
+                  </span>
+                  <ul className="space-y-1.5 text-xs">
+                    {currentFrag.signalen.map((sig, sIdx) => (
+                      <li key={sIdx} className="bg-white p-2 rounded border border-[#EDE6DA]">
+                        <span className="font-semibold text-[#D3104C]">"{sig.fragment}"</span>
+                        <p className="text-[11.5px] text-[#5A5A55] mt-0.5 leading-relaxed">{sig.uitleg}</p>
+                      </li>
                     ))}
                   </ul>
                 </div>
-              ) : (
-                <p className="text-xs text-[#7A756E] mb-3 p-2 bg-white rounded border border-[#EDE6DA]">
-                  Je hebt tijdens het afspelen niet op Signaleer geklikt. Bekijk hieronder welke subtiele signalen in dit fragment verborgen zaten.
-                </p>
-              )}
 
-              <div className="border-t border-[#E8E4DA] pt-3">
-                <span className="text-xs font-bold text-[#003340] uppercase tracking-wider block mb-2">
-                  Alle signalen in dit fragment ({currentFrag.signalen.length}):
-                </span>
-                <ul className="space-y-2 text-xs md:text-sm">
-                  {currentFrag.signalen.map((sig, sIdx) => (
-                    <li key={sIdx} className="bg-white p-2.5 rounded border border-[#EDE6DA]">
-                      <span className="font-semibold text-[#D3104C]">"{sig.fragment}"</span>
-                      <p className="text-xs text-[#5A5A55] mt-1">{sig.uitleg}</p>
-                    </li>
-                  ))}
-                </ul>
+                <div className="flex justify-end mt-3">
+                  <button
+                    onClick={handleVolgende}
+                    id="btn-volgend-fragment"
+                    className="inline-flex items-center gap-1 bg-[#003340] hover:bg-[#004558] text-white px-3 py-1.5 rounded-md text-xs font-semibold cursor-pointer transition-colors"
+                  >
+                    <span>{huidig < fragmenten.length - 1 ? 'Volgend audiofragment' : 'Afronden'}</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </button>
+                </div>
               </div>
-
-              <div className="flex justify-end mt-4">
-                <button
-                  onClick={handleVolgende}
-                  id="btn-volgend-fragment"
-                  className="inline-flex items-center gap-1.5 bg-[#003340] hover:bg-[#004558] text-white px-4 py-2 rounded-md text-xs font-semibold cursor-pointer transition-colors"
-                >
-                  <span>{huidig < fragmenten.length - 1 ? 'Volgend audiofragment' : 'Afronden'}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
-      )}
-
-      <div className="mt-4 flex justify-between items-center">
-        <button
-          onClick={handleOpnieuw}
-          className="inline-flex items-center gap-1 text-xs text-[#5A5A55] hover:text-[#003340] border border-[#C9C4B8] hover:bg-[#F7EFE3] px-2.5 py-1.5 rounded cursor-pointer transition-colors"
-        >
-          <RotateCcw className="w-3 h-3" />
-          <span>Opnieuw doen</span>
-        </button>
-
-        {isVoltooid && (
-          <span className="text-xs text-[#3AB7B0] font-semibold flex items-center gap-1">
-            <CheckCircle2 className="w-3.5 h-3.5" />
-            Voltooid
-          </span>
+            )}
+          </div>
         )}
       </div>
     </div>

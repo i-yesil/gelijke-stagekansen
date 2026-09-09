@@ -84,6 +84,13 @@ export default function App() {
     });
   };
 
+  const handleToggleOpdracht = (stapId: number) => {
+    setOpdrachtGedaan((prev) => ({
+      ...prev,
+      [stapId]: !prev[stapId]
+    }));
+  };
+
   const handleSaveReflectie = (tekst: string) => {
     setReflectie(tekst);
     try {
@@ -144,7 +151,7 @@ export default function App() {
       <PrintView />
 
       {/* Screen App Container */}
-      <div className="no-print max-w-[1200px] mx-auto px-4 md:px-8 py-6 md:py-8">
+      <div className="no-print max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
         <Header onPrint={handlePrint} />
 
         <Intro />
@@ -155,6 +162,7 @@ export default function App() {
           geopend={geopend}
           opdrachtGedaan={opdrachtGedaan}
           onSelectStap={handleSelectStap}
+          onToggleOpdracht={handleToggleOpdracht}
         />
 
         {/* Selected Step Panel (opent direct onder de stappen zodra een bouwsteen geselecteerd is) */}
@@ -165,6 +173,7 @@ export default function App() {
               opdrachtGedaan={!!opdrachtGedaan[geselecteerdeBouwsteen.id]}
               onCompleteOpdracht={handleCompleteOpdracht}
               onResetOpdracht={handleResetOpdracht}
+              onToggleOpdracht={handleToggleOpdracht}
               onSelectStap={handleSelectStap}
               onNaarOverzicht={handleNaarOverzicht}
               reflectieTekst={reflectie}
