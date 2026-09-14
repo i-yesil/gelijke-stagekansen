@@ -56,7 +56,7 @@ export const InteractiveWheel: React.FC<InteractiveWheelProps> = ({
       <svg
         viewBox="0 0 420 420"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-full max-w-[380px] md:max-w-[420px] h-auto drop-shadow-sm select-none"
+        className="w-full max-w-[380px] md:max-w-[420px] h-auto select-none"
         style={{ width: '100%', maxWidth: `${formaat}px` }}
       >
         {bouwstenen.map((b, i) => {
@@ -112,7 +112,7 @@ export const InteractiveWheel: React.FC<InteractiveWheelProps> = ({
                 cy={np.y}
                 r="11.5"
                 fill="#ffffff"
-                className="pointer-events-none shadow-sm"
+                className="pointer-events-none"
               />
               <text
                 x={np.x}

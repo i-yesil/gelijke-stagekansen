@@ -12,6 +12,7 @@ import {
   Mail,
   Save,
   CheckCircle2,
+  Check,
   BookOpen,
   GraduationCap
 } from 'lucide-react';
@@ -73,7 +74,7 @@ export const StepPanel: React.FC<StepPanelProps> = ({
           <button
             type="button"
             onClick={() => toggleInline(idKey)}
-            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs md:text-sm font-semibold cursor-pointer transition-all border shadow-2xs"
+            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs md:text-sm font-semibold cursor-pointer transition-all border"
             style={{
               backgroundColor: isInlineOpen ? theme.badgeBg : '#ffffff',
               color: theme.labelColor,
@@ -90,10 +91,9 @@ export const StepPanel: React.FC<StepPanelProps> = ({
 
           {isInlineOpen && (
             <div
-              className="mt-2.5 p-4 rounded-lg border border-l-4 animate-in fade-in"
+              className="mt-2.5 p-4 rounded-lg border animate-in fade-in"
               style={{
                 backgroundColor: theme.lightBg,
-                borderLeftColor: theme.primary,
                 borderColor: theme.border
               }}
             >
@@ -110,7 +110,7 @@ export const StepPanel: React.FC<StepPanelProps> = ({
           <button
             type="button"
             onClick={() => toggleInline(idKey)}
-            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs md:text-sm font-semibold cursor-pointer transition-all border shadow-2xs"
+            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs md:text-sm font-semibold cursor-pointer transition-all border"
             style={{
               backgroundColor: isInlineOpen ? theme.badgeBg : '#ffffff',
               color: theme.labelColor,
@@ -129,7 +129,7 @@ export const StepPanel: React.FC<StepPanelProps> = ({
                 borderColor: theme.border
               }}
             >
-              <div className="relative pb-[56.25%] h-0 rounded-md overflow-hidden bg-black shadow-xs">
+              <div className="relative pb-[56.25%] h-0 rounded-md overflow-hidden bg-black">
                 <iframe
                   className="absolute top-0 left-0 w-full h-full"
                   src={`https://www.youtube-nocookie.com/embed/${link.videoId}`}
@@ -191,7 +191,7 @@ export const StepPanel: React.FC<StepPanelProps> = ({
 
   return (
     <div
-      className="bg-white rounded-xl shadow-xs border mb-8 overflow-hidden animate-in fade-in duration-300"
+      className="bg-white rounded-xl border mb-8 overflow-hidden animate-in fade-in duration-300"
       style={{ borderColor: theme.border }}
     >
       {/* Themed Top Header Banner - Compacter (Optie 4) met directe sluitknop */}
@@ -204,7 +204,7 @@ export const StepPanel: React.FC<StepPanelProps> = ({
       >
         <div className="flex items-center gap-3">
           <div
-            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-black text-sm sm:text-base flex-shrink-0 shadow-2xs border-2"
+            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-black text-sm sm:text-base flex-shrink-0 border-2"
             style={{
               backgroundColor: theme.primary,
               borderColor: theme.border,
@@ -258,134 +258,191 @@ export const StepPanel: React.FC<StepPanelProps> = ({
       </div>
 
       <div className="p-4 sm:p-5 md:p-6">
-        {/* Tweekoloms grid op grotere schermen (Optie 1) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-          
-          {/* Linkerkolom: Inleiding & Verwachtingen (ca. 58% breedte) */}
-          <div className="lg:col-span-7 xl:col-span-7 space-y-4">
-            {/* Themed Introduction Container - compacter */}
-            <div
-              className="p-3.5 sm:p-4 rounded-xl text-xs sm:text-sm leading-relaxed"
-              style={{
-                backgroundColor: theme.lightBg,
-                color: theme.labelColor
-              }}
-            >
-              <p className="leading-relaxed font-medium">
-                {stap.inleiding}
-              </p>
-            </div>
+        {/* Themed Introduction Container - over de volle breedte */}
+        <div
+          className="p-4 sm:p-5 rounded-xl text-xs sm:text-sm leading-relaxed mb-6"
+          style={{
+            backgroundColor: theme.lightBg,
+            color: theme.labelColor
+          }}
+        >
+          <p className="leading-relaxed font-medium">
+            {stap.inleiding}
+          </p>
+        </div>
 
-            {/* Expectations Section Label */}
-            <div
-              className="text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider mb-2 flex items-center gap-2"
-              style={{ color: theme.labelColor }}
-            >
+        {/* Expectations Section: 2 kolommen naast elkaar */}
+        <div className="space-y-3 mb-8">
+          <div
+            className="text-[11px] sm:text-xs font-bold uppercase tracking-wider flex items-center gap-2"
+            style={{ color: theme.labelColor }}
+          >
+            <span
+              className="w-2.5 h-2.5 rounded-full flex-shrink-0"
+              style={{ backgroundColor: theme.primary }}
+            />
+            <span>Wat wordt er van jou als onderwijsprofessional verwacht?</span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4">
+            {stap.verwachting.map((item, idx) => (
+              <div
+                key={idx}
+                className="p-3.5 sm:p-4 rounded-xl border bg-[#FDFBF7] hover:bg-white transition-all flex flex-col justify-between"
+                style={{ borderColor: theme.border }}
+              >
+                <div>
+                  <div className="flex items-start gap-2.5">
+                    <span
+                      className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5"
+                      style={{
+                        backgroundColor: theme.badgeBg,
+                        border: `1px solid ${theme.border}`
+                      }}
+                      aria-hidden="true"
+                    >
+                      <Check className="w-3 h-3" style={{ color: theme.labelColor }} strokeWidth={2.5} />
+                    </span>
+                    <div
+                      className="text-xs sm:text-sm leading-relaxed text-[#003340] flex-1"
+                      dangerouslySetInnerHTML={{ __html: item.tekst }}
+                    />
+                  </div>
+                </div>
+
+                {item.link && (
+                  <div className="mt-2.5 pt-2 border-t border-[#F0EBE3] pl-7">
+                    {renderLink(item.link, `link-${stap.id}-${idx}`)}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Sectie: Interactieve oefening (over de volledige breedte) */}
+        <div className="pt-6 border-t-2 border-[#EDE6DA] space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+            <div className="flex items-center gap-2">
               <span
-                className="w-2 h-2 rounded-full flex-shrink-0"
+                className="w-2.5 h-2.5 rounded-full flex-shrink-0"
                 style={{ backgroundColor: theme.primary }}
               />
-              <span>Wat wordt er van jou als begeleider verwacht?</span>
+              <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#003340]">
+                Breng het in de praktijk: Interactieve oefening
+              </h3>
             </div>
-
-            {/* Expectations List */}
-            <ul className="divide-y divide-[#F0EBE3]">
-              {stap.verwachting.map((item, idx) => (
-                <li key={idx} className="py-2.5 text-xs sm:text-sm leading-relaxed text-[#003340]">
-                  <div dangerouslySetInnerHTML={{ __html: item.tekst }} />
-                  {renderLink(item.link, `link-${stap.id}-${idx}`)}
-                </li>
-              ))}
-            </ul>
+            <span className="text-[11px] text-[#7A756E]">
+              Toets direct je kennis en reactie in de praktijk
+            </span>
           </div>
 
-          {/* Rechterkolom: Interactieve oefening & Meer weten (ca. 42% breedte) */}
-          <div className="lg:col-span-5 xl:col-span-5 space-y-4 lg:sticky lg:top-4">
-            {/* Embedded Interactive Assignment */}
-            <div>
-              {stap.id === 1 && (
-                <OpdrachtMytheFeit
-                  onComplete={() => onCompleteOpdracht(1)}
-                  onReset={() => onResetOpdracht(1)}
-                  isVoltooid={opdrachtGedaan}
-                />
-              )}
-              {stap.id === 2 && (
-                <OpdrachtSignaleerAudio
-                  onComplete={() => onCompleteOpdracht(2)}
-                  onReset={() => onResetOpdracht(2)}
-                  isVoltooid={opdrachtGedaan}
-                />
-              )}
-              {stap.id === 3 && (
-                <OpdrachtGespreksvoering
-                  onComplete={() => onCompleteOpdracht(3)}
-                  onReset={() => onResetOpdracht(3)}
-                  isVoltooid={opdrachtGedaan}
-                />
-              )}
-              {stap.id === 4 && (
-                <OpdrachtCasusKeuzes
-                  onComplete={() => onCompleteOpdracht(4)}
-                  onReset={() => onResetOpdracht(4)}
-                  isVoltooid={opdrachtGedaan}
-                />
-              )}
-              {stap.id === 5 && (
-                <OpdrachtNazorgScenario
-                  onComplete={() => onCompleteOpdracht(5)}
-                  onReset={() => onResetOpdracht(5)}
-                  isVoltooid={opdrachtGedaan}
-                />
-              )}
-            </div>
-
-            {/* "Meer weten / Verdiep je verder" rechts onder de oefening */}
-            {stap.uitklaps && stap.uitklaps.length > 0 && (
-              <div className="pt-3 border-t border-[#EDE6DA]">
-                <div className="text-[10.5px] font-bold uppercase tracking-wider text-[#7A756E] mb-2">
-                  {stap.uitklaps.some((u) => u.type === 'academie') ? 'Verdiep je verder' : 'Meer weten'}
-                </div>
-                <div className="space-y-1.5">
-                  {stap.uitklaps.map((u, uIdx) => (
-                    <a
-                      key={uIdx}
-                      href={u.url || '#'}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2.5 p-2.5 bg-[#FBF7F1] hover:bg-[#F7EFE3] border border-[#E8E4DA] rounded-lg text-xs text-[#003340] transition-all hover:border-[var(--hover-border)]"
-                      style={{ '--hover-border': theme.primary } as React.CSSProperties}
-                    >
-                      <div className="text-[#00A0DB] shrink-0">
-                        {u.type === 'academie' ? (
-                          <BookOpen className="w-3.5 h-3.5" />
-                        ) : u.type === 'tip' ? (
-                          <Lightbulb className="w-3.5 h-3.5 text-[#D3104C]" />
-                        ) : (
-                          <ExternalLink className="w-3.5 h-3.5" />
-                        )}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <span className="font-semibold">{u.titel}</span>
-                        {u.inhoud && (
-                          <span className="text-[11px] text-[#5A5A55] block truncate mt-0.5">
-                            {u.inhoud.replace(/<[^>]+>/g, '')}
-                          </span>
-                        )}
-                      </div>
-                      <ChevronRight className="w-3.5 h-3.5 text-[#7A756E] shrink-0" />
-                    </a>
-                  ))}
-                </div>
-              </div>
+          {/* Oefening vult volledig de pagina / container */}
+          <div className="w-full">
+            {stap.id === 1 && (
+              <OpdrachtMytheFeit
+                onComplete={() => onCompleteOpdracht(1)}
+                onReset={() => onResetOpdracht(1)}
+                isVoltooid={opdrachtGedaan}
+              />
+            )}
+            {stap.id === 2 && (
+              <OpdrachtSignaleerAudio
+                onComplete={() => onCompleteOpdracht(2)}
+                onReset={() => onResetOpdracht(2)}
+                isVoltooid={opdrachtGedaan}
+              />
+            )}
+            {stap.id === 3 && (
+              <OpdrachtGespreksvoering
+                onComplete={() => onCompleteOpdracht(3)}
+                onReset={() => onResetOpdracht(3)}
+                isVoltooid={opdrachtGedaan}
+              />
+            )}
+            {stap.id === 4 && (
+              <OpdrachtCasusKeuzes
+                onComplete={() => onCompleteOpdracht(4)}
+                onReset={() => onResetOpdracht(4)}
+                isVoltooid={opdrachtGedaan}
+              />
+            )}
+            {stap.id === 5 && (
+              <OpdrachtNazorgScenario
+                onComplete={() => onCompleteOpdracht(5)}
+                onReset={() => onResetOpdracht(5)}
+                isVoltooid={opdrachtGedaan}
+              />
             )}
           </div>
+
+          {/* Handige tools & achtergrond ALTIJD onder de oefening over de volle breedte */}
+          {stap.uitklaps && stap.uitklaps.length > 0 && (
+            <div className="pt-4 border-t border-[#EDE6DA] space-y-3">
+              <div className="flex items-center justify-between">
+                <div className="text-[11px] font-bold uppercase tracking-wider text-[#003340] flex items-center gap-2">
+                  <span
+                    className="w-2 h-2 rounded-full flex-shrink-0"
+                    style={{ backgroundColor: theme.primary }}
+                  />
+                  <span>
+                    {stap.uitklaps.some((u) => u.type === 'academie')
+                      ? 'Verdiep je verder (HR Academie & Trainingen)'
+                      : 'Handige tools, formulieren & achtergrond'}
+                  </span>
+                </div>
+                <span className="text-[10.5px] text-[#7A756E]">
+                  {stap.uitklaps.length} {stap.uitklaps.length === 1 ? 'bron' : 'bronnen'} beschikbaar
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {stap.uitklaps.map((u, uIdx) => (
+                  <a
+                    key={uIdx}
+                    href={u.url || '#'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-3 p-3.5 bg-[#FDFBF7] hover:bg-white border border-[#E8E4DA] rounded-xl text-xs text-[#003340] transition-all hover:border-[var(--hover-border)]"
+                    style={{ '--hover-border': theme.primary } as React.CSSProperties}
+                  >
+                    <div className="text-[#00A0DB] shrink-0 mt-0.5">
+                      {u.type === 'academie' ? (
+                        <div className="w-7 h-7 rounded-lg bg-[#EBF6FB] flex items-center justify-center text-[#007AA8]">
+                          <BookOpen className="w-4 h-4" />
+                        </div>
+                      ) : u.type === 'tip' ? (
+                        <div className="w-7 h-7 rounded-lg bg-[#FDEEF3] flex items-center justify-center text-[#D3104C]">
+                          <Lightbulb className="w-4 h-4" />
+                        </div>
+                      ) : (
+                        <div className="w-7 h-7 rounded-lg bg-[#EBF6FB] flex items-center justify-center text-[#007AA8]">
+                          <ExternalLink className="w-4 h-4" />
+                        </div>
+                      )}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <span className="font-bold text-xs sm:text-[13px] text-[#003340] block leading-snug">
+                        {u.titel}
+                      </span>
+                      {u.inhoud && (
+                        <span className="text-[11px] text-[#5A5A55] block leading-relaxed mt-1 line-clamp-2">
+                          {u.inhoud.replace(/<[^>]+>/g, '')}
+                        </span>
+                      )}
+                    </div>
+                    <ChevronRight className="w-4 h-4 text-[#7A756E] shrink-0 mt-1" />
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Step 5 Closing / Reflection Section (over de volle breedte onderaan stap 5) */}
         {stap.id === 5 && (
           <div className="mt-6 pt-5 border-t-2 border-[#D3104C] space-y-4">
-            <div className="bg-[#003340] text-white p-5 md:p-6 rounded-xl shadow-md space-y-4 border border-[#004D60]">
+            <div className="bg-[#003340] text-white p-5 md:p-6 rounded-xl space-y-4 border border-[#004D60]">
               <div>
                 <h3 className="text-base md:text-lg font-bold text-[#FCC200] mb-1.5">
                   Elke student telt.
@@ -414,21 +471,21 @@ export const StepPanel: React.FC<StepPanelProps> = ({
                 <div className="mt-2.5 flex flex-wrap items-center gap-2">
                   <button
                     onClick={handleReflectieOpslaan}
-                    className="inline-flex items-center gap-1.5 bg-[#3AB7B0] hover:bg-[#2F9E98] text-white px-3 py-1.5 rounded-md text-xs font-semibold cursor-pointer transition-colors shadow-xs"
+                    className="inline-flex items-center gap-1.5 bg-[#3AB7B0] hover:bg-[#2F9E98] text-white px-3 py-1.5 rounded-md text-xs font-semibold cursor-pointer transition-colors"
                   >
                     <Save className="w-3.5 h-3.5" />
                     <span>Opslaan in browser</span>
                   </button>
                   <a
                     href={`mailto:?subject=${encodeURIComponent('Mijn reflectie & actiepunten stagediscriminatie')}&body=${encodeURIComponent(lokaleReflectie || 'Nog geen notities ingevuld.')}`}
-                    className="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 text-[#F7EFE3] border border-white/20 px-3 py-1.5 rounded-md text-xs font-semibold cursor-pointer transition-colors shadow-xs"
+                    className="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 text-[#F7EFE3] border border-white/20 px-3 py-1.5 rounded-md text-xs font-semibold cursor-pointer transition-colors"
                   >
                     <Mail className="w-3.5 h-3.5 text-[#3AB7B0]" />
                     <span>Mail naar jezelf</span>
                   </a>
                   <button
                     onClick={() => setShowProfessionalisering(!showProfessionalisering)}
-                    className="inline-flex items-center gap-1.5 bg-[#FCC200] hover:bg-[#E5B000] text-[#003340] px-3 py-1.5 rounded-md text-xs font-bold cursor-pointer transition-colors shadow-xs"
+                    className="inline-flex items-center gap-1.5 bg-[#FCC200] hover:bg-[#E5B000] text-[#003340] px-3 py-1.5 rounded-md text-xs font-bold cursor-pointer transition-colors"
                   >
                     <GraduationCap className="w-3.5 h-3.5 text-[#003340]" />
                     <span>Aanmelden professionalisering</span>
@@ -443,7 +500,7 @@ export const StepPanel: React.FC<StepPanelProps> = ({
                 </div>
 
                 {showProfessionalisering && (
-                  <div className="mt-3 p-3.5 bg-white text-[#003340] rounded-lg border border-white/20 shadow-md space-y-2.5">
+                  <div className="mt-3 p-3.5 bg-white text-[#003340] rounded-lg border border-white/20 space-y-2.5">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-[#EDE6DA] pb-1.5">
                       <span className="text-xs font-bold text-[#003340] uppercase tracking-wider flex items-center gap-1.5">
                         <GraduationCap className="w-4 h-4 text-[#3AB7B0]" />
@@ -543,7 +600,7 @@ export const StepPanel: React.FC<StepPanelProps> = ({
             {volgendeStap && (
               <button
                 onClick={() => onSelectStap(volgendeStap.id)}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-md text-xs md:text-sm font-semibold cursor-pointer transition-all shadow-2xs hover:opacity-90"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-md text-xs md:text-sm font-semibold cursor-pointer transition-all hover:opacity-90"
                 style={{
                   backgroundColor: stepThemes[volgendeStap.id].primary,
                   color: volgendeStap.kleur === '#FCC200' ? '#003340' : '#ffffff'

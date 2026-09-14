@@ -358,7 +358,7 @@ export const OpdrachtSignaleerAudio: React.FC<OpdrachtSignaleerAudioProps> = ({
   const isAfgerond = huidig >= fragmenten.length;
 
   return (
-    <div className="rounded-xl border-2 border-[#D3104C] overflow-hidden shadow-2xs bg-[#FDF2F5]">
+    <div className="rounded-xl border-2 border-[#D3104C] overflow-hidden bg-[#FDF2F5]">
       {/* Themed Header Bar matching tegel 2 */}
       <div className="bg-[#D3104C] text-white px-3.5 sm:px-4 py-2.5 flex items-center justify-between">
         <div className="flex items-center gap-2">
@@ -368,7 +368,7 @@ export const OpdrachtSignaleerAudio: React.FC<OpdrachtSignaleerAudioProps> = ({
           </h3>
         </div>
         <span className="text-[9.5px] font-bold uppercase tracking-wider bg-white/20 text-white px-2 py-0.5 rounded-full">
-          Oefening Stap 2
+          Oefening
         </span>
       </div>
 
@@ -397,7 +397,7 @@ export const OpdrachtSignaleerAudio: React.FC<OpdrachtSignaleerAudioProps> = ({
             </button>
           </div>
         ) : (
-          <div className="bg-white border border-[#E8E4DA] rounded-lg p-3.5 sm:p-4 shadow-2xs">
+          <div className="bg-white border border-[#E8E4DA] rounded-lg p-3.5 sm:p-4">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3 gap-2">
               <div>
                 <span className="font-bold text-xs sm:text-[13.5px] text-[#003340]">{currentFrag.naam}</span>
@@ -415,7 +415,7 @@ export const OpdrachtSignaleerAudio: React.FC<OpdrachtSignaleerAudioProps> = ({
                 <button
                   onClick={handleTogglePlay}
                   id="btn-play-pause-audio"
-                  className="w-9 h-9 rounded-full bg-[#D3104C] hover:bg-[#B41E4B] text-white flex items-center justify-center cursor-pointer transition-transform active:scale-95 shadow-sm flex-shrink-0"
+                  className="w-9 h-9 rounded-full bg-[#D3104C] hover:bg-[#B41E4B] text-white flex items-center justify-center cursor-pointer transition-transform active:scale-95 flex-shrink-0"
                   aria-label={isPlaying ? 'Pauzeren' : 'Afspelen'}
                 >
                   {isPlaying ? (
@@ -480,7 +480,7 @@ export const OpdrachtSignaleerAudio: React.FC<OpdrachtSignaleerAudioProps> = ({
                       isFlagged
                         ? 'bg-[#FCC200]/35 border-b-2 border-[#E59800] font-semibold text-[#003340]'
                         : isCurrent
-                        ? 'bg-[#D3104C]/20 border-b-2 border-[#D3104C] font-semibold text-[#003340] shadow-2xs'
+                        ? 'bg-[#D3104C]/20 border-b-2 border-[#D3104C] font-semibold text-[#003340]'
                         : 'text-[#5A5A55] hover:bg-black/5 hover:text-[#003340]'
                     }`}
                   >
@@ -499,8 +499,8 @@ export const OpdrachtSignaleerAudio: React.FC<OpdrachtSignaleerAudioProps> = ({
                 className={`px-6 py-2 rounded-lg font-bold text-xs sm:text-[13px] transition-all flex items-center gap-2 ${
                   isPlaying
                     ? justSignaled
-                      ? 'bg-[#FCC200] text-[#003340] scale-105 shadow-md ring-2 ring-[#FCC200]/40'
-                      : 'bg-[#B41E4B] hover:bg-[#D3104C] text-white shadow-sm active:scale-95 cursor-pointer ring-2 ring-[#B41E4B]/20'
+                      ? 'bg-[#FCC200] text-[#003340] scale-105 ring-2 ring-[#FCC200]/40'
+                      : 'bg-[#B41E4B] hover:bg-[#D3104C] text-white active:scale-95 cursor-pointer ring-2 ring-[#B41E4B]/20'
                     : 'bg-gray-200 text-gray-400 cursor-not-allowed'
                 }`}
               >

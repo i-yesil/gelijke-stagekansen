@@ -1,16 +1,14 @@
-import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, Mic, Headphones, ExternalLink } from 'lucide-react';
+import React from 'react';
+import { Mic, Headphones, ExternalLink } from 'lucide-react';
 
 export const Intro: React.FC = () => {
-  const [expanded, setExpanded] = useState(false);
-
   return (
     <div className="mb-7 bg-[#F7EFE3] p-5 sm:p-6 md:p-7 rounded-2xl border border-[#EDE6DA] text-[#003340] shadow-none">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-        {/* Linkerkolom: Inleidingstekst & Achtergrond (meer ruimte) */}
+        {/* Linkerkolom: Inleidingstekst & Achtergrond (volledig direct zichtbaar) */}
         <div className="lg:col-span-8 xl:col-span-9 flex flex-col justify-between space-y-3.5">
-          <div>
-            <p className="text-[#003340] text-sm md:text-base leading-relaxed font-medium mb-3.5">
+          <div className="space-y-3">
+            <p className="text-[#003340] text-sm md:text-base leading-relaxed font-medium">
               Gelijke stagekansen zijn een vanzelfsprekende norm binnen de hogeschool: elke student verdient dezelfde kans op een passende en veilige stage. Toch is stagediscriminatie een reëel en vaak onderschat probleem. Uit onderzoek blijkt dat het voorkomt bij het zoeken naar een stageplek, tijdens sollicitatiegesprekken én op de werkvloer zelf. Veel signalen blijven onder de radar omdat studenten zelden uit zichzelf melding maken door schaamte, twijfel of angst voor vertraging.
             </p>
 
@@ -18,55 +16,44 @@ export const Intro: React.FC = () => {
               Deze aanpak is er voor iedereen die met studenten werkt: onderwijsmanager, stagecoördinator, docent, studieloopbaancoach of stagebegeleider. Wie de student ook spreekt of begeleidt: jij maakt het cruciale verschil in veiligheid, opvang en rugdekking. Met het onderstaande 5-stappenkader heb je altijd duidelijke houvast in handen.
             </p>
 
-            {expanded && (
-              <div className="pt-3 mt-3 border-t border-[#E8E4DA] text-sm md:text-base text-[#003340] space-y-3 leading-relaxed animate-in fade-in">
-                <p>
-                  Hogeschool Rotterdam pakt dit actief aan. Wij ondertekenden{' '}
-                  <a
-                    href="https://www.rijksoverheid.nl/actueel/nieuws/2022/07/13/manifest-ondertekend-om-stagediscriminatie-tegen-te-gaan"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#007AA8] hover:text-[#005B7F] underline inline-flex items-center gap-0.5 font-semibold"
-                  >
-                    <span>het landelijke Manifest tegen stagediscriminatie</span>
-                    <ExternalLink className="w-3.5 h-3.5 inline-block" />
-                  </a>{' '}
-                  en bouwen, in navolging van{' '}
-                  <a
-                    href="https://haagseaanpak.nl/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#007AA8] hover:text-[#005B7F] underline inline-flex items-center gap-0.5 font-semibold"
-                  >
-                    <span>de Haagse aanpak</span>
-                    <ExternalLink className="w-3.5 h-3.5 inline-block" />
-                  </a>
-                  , aan een eigen Rotterdamse aanpak.
-                </p>
-                <p>
-                  Het doel is helder: minder onderzoek en méér concrete actie in de onderwijspraktijk. Met deze 5 stappen werken we gezamenlijk aan gelijke stagekansen en sociale veiligheid voor iedere student.
-                </p>
-              </div>
-            )}
-          </div>
-
-          <div>
-            <button
-              onClick={() => setExpanded(!expanded)}
-              className="mt-2 text-xs md:text-sm font-semibold text-[#D3104C] hover:text-[#B41E4B] inline-flex items-center gap-1 cursor-pointer transition-colors"
-            >
-              {expanded ? (
-                <>
-                  <span>Minder lezen</span>
-                  <ChevronUp className="w-4 h-4" />
-                </>
-              ) : (
-                <>
-                  <span>Lees meer over de Rotterdamse aanpak</span>
-                  <ChevronDown className="w-4 h-4" />
-                </>
-              )}
-            </button>
+            <div className="pt-3 border-t border-[#E8E4DA] text-sm md:text-base text-[#003340] space-y-2.5 leading-relaxed">
+              <p>
+                Hogeschool Rotterdam pakt dit actief aan. Wij ondertekenden{' '}
+                <a
+                  href="https://www.rijksoverheid.nl/actueel/nieuws/2022/07/13/manifest-ondertekend-om-stagediscriminatie-tegen-te-gaan"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#007AA8] hover:text-[#005B7F] underline inline-flex items-center gap-0.5 font-semibold"
+                >
+                  <span>het landelijke Manifest tegen stagediscriminatie</span>
+                  <ExternalLink className="w-3.5 h-3.5 inline-block" />
+                </a>{' '}
+                en bouwen, in navolging van{' '}
+                <a
+                  href="https://haagseaanpak.nl/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#007AA8] hover:text-[#005B7F] underline inline-flex items-center gap-0.5 font-semibold"
+                >
+                  <span>de Haagse aanpak</span>
+                  <ExternalLink className="w-3.5 h-3.5 inline-block" />
+                </a>
+                , aan een eigen Rotterdamse aanpak.
+              </p>
+              <p>
+                In de aflevering{' '}
+                <a
+                  href="https://echo-net.nl/stagediscriminatie-onder-de-loep/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#007AA8] hover:text-[#005B7F] underline inline-flex items-center gap-0.5 font-semibold"
+                >
+                  <span>“WAAROM?! bestaat stagediscriminatie nog steeds?”</span>
+                  <ExternalLink className="w-3.5 h-3.5 inline-block" />
+                </a>{' '}
+                vat RAC-docent Mourad el Moussati de urgentie kort samen: minder onderzoek, méér actie. Met deze 5 stappen werken we gezamenlijk aan gelijke stagekansen en sociale veiligheid voor iedere student.
+              </p>
+            </div>
           </div>
         </div>
 

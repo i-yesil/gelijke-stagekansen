@@ -41,7 +41,7 @@ export const OpdrachtNazorgScenario: React.FC<OpdrachtNazorgScenarioProps> = ({
   const isAfgerond = huidig >= nazorgStudenten.length;
 
   return (
-    <div className="rounded-xl border-2 border-[#3AB7B0] overflow-hidden shadow-2xs bg-[#EDFAF9]">
+    <div className="rounded-xl border-2 border-[#3AB7B0] overflow-hidden bg-[#EDFAF9]">
       {/* Themed Header Bar matching tegel 5 */}
       <div className="bg-[#3AB7B0] text-white px-3.5 sm:px-4 py-2.5 flex items-center justify-between">
         <div className="flex items-center gap-2">
@@ -51,7 +51,7 @@ export const OpdrachtNazorgScenario: React.FC<OpdrachtNazorgScenarioProps> = ({
           </h3>
         </div>
         <span className="text-[9.5px] font-bold uppercase tracking-wider bg-white/20 text-white px-2 py-0.5 rounded-full">
-          Oefening Stap 5
+          Oefening
         </span>
       </div>
 
@@ -80,7 +80,7 @@ export const OpdrachtNazorgScenario: React.FC<OpdrachtNazorgScenarioProps> = ({
             </button>
           </div>
         ) : (
-          <div className="bg-white border border-[#E8E4DA] rounded-lg p-3.5 sm:p-4 shadow-2xs">
+          <div className="bg-white border border-[#E8E4DA] rounded-lg p-3.5 sm:p-4">
             <div className="flex justify-between items-center text-[11px] text-[#7A756E] mb-2.5">
               <span className="font-bold uppercase tracking-wider text-[#3AB7B0]">
                 Casus {huidig + 1} van {nazorgStudenten.length}

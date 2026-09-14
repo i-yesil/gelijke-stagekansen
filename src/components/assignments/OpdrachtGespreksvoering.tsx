@@ -143,7 +143,7 @@ export const OpdrachtGespreksvoering: React.FC<OpdrachtGespreksvoeringProps> = (
   const isAllesCorrect = isGecontroleerd && aantalCorrect === totaalKaarten;
 
   return (
-    <div className="rounded-xl border-2 border-[#003340] overflow-hidden shadow-2xs bg-[#EDF3F5]">
+    <div className="rounded-xl border-2 border-[#003340] overflow-hidden bg-[#EDF3F5]">
       {/* Themed Header Bar matching tegel 3 */}
       <div className="bg-[#003340] text-white px-3.5 sm:px-4 py-2.5 flex items-center justify-between">
         <div className="flex items-center gap-2">
@@ -153,7 +153,7 @@ export const OpdrachtGespreksvoering: React.FC<OpdrachtGespreksvoeringProps> = (
           </h3>
         </div>
         <span className="text-[9.5px] font-bold uppercase tracking-wider bg-white/20 text-white px-2 py-0.5 rounded-full">
-          Oefening Stap 3
+          Oefening
         </span>
       </div>
 
@@ -163,7 +163,7 @@ export const OpdrachtGespreksvoering: React.FC<OpdrachtGespreksvoeringProps> = (
         </p>
 
         {fase === 'deelA' ? (
-          <div className="bg-white border border-[#E8E4DA] rounded-lg p-3.5 sm:p-4 shadow-2xs">
+          <div className="bg-white border border-[#E8E4DA] rounded-lg p-3.5 sm:p-4">
             <div className="flex justify-between items-center text-[11px] text-[#7A756E] mb-2.5">
               <span className="font-bold uppercase tracking-wider text-[#003340]">Oefening 1 van 2</span>
               <span>Kies jouw reactie</span>
@@ -236,7 +236,7 @@ export const OpdrachtGespreksvoering: React.FC<OpdrachtGespreksvoeringProps> = (
           </div>
         ) : (
           /* OEFENING 2: DE SLEEPOPDRACHT / CATEGORISEER-UITDAGING */
-          <div className="bg-white border border-[#E8E4DA] rounded-lg p-3.5 sm:p-4 shadow-2xs">
+          <div className="bg-white border border-[#E8E4DA] rounded-lg p-3.5 sm:p-4">
             <div className="flex justify-between items-center text-[11px] text-[#7A756E] mb-2">
               <span className="font-bold uppercase tracking-wider text-[#003340]">Oefening 2 van 2: Categoriseer</span>
               <span>OMA, NIVEA of Goede reactie?</span>
@@ -284,8 +284,8 @@ export const OpdrachtGespreksvoering: React.FC<OpdrachtGespreksvoeringProps> = (
                       onClick={() => setGeselecteerdeKaartId(isGeselecteerd ? null : kaart.id)}
                       className={`p-3 bg-white rounded-lg border text-xs md:text-sm leading-relaxed cursor-grab active:cursor-grabbing transition-all select-none ${
                         isGeselecteerd
-                          ? 'border-[#003340] ring-2 ring-[#003340] shadow-sm bg-[#FFFDF9]'
-                          : 'border-[#EDE6DA] hover:border-[#003340]/40 hover:shadow-2xs'
+                          ? 'border-[#003340] ring-2 ring-[#003340] bg-[#FFFDF9]'
+                          : 'border-[#EDE6DA] hover:border-[#003340]/40'
                       }`}
                     >
                       <p className="italic text-[#003340] mb-2 font-normal">"{kaart.zin}"</p>
@@ -421,7 +421,7 @@ export const OpdrachtGespreksvoering: React.FC<OpdrachtGespreksvoeringProps> = (
                                 ? isCorrect
                                   ? 'border-[#3AB7B0] bg-[#F2FAF9]'
                                   : 'border-[#B41E4B] bg-[#FDEEF3]'
-                                : 'border-[#EDE6DA] hover:border-[#C9C4B8] shadow-2xs'
+                                : 'border-[#EDE6DA] hover:border-[#C9C4B8]'
                             }`}
                           >
                             <div className="flex items-start justify-between gap-1.5 mb-1.5">
@@ -499,7 +499,7 @@ export const OpdrachtGespreksvoering: React.FC<OpdrachtGespreksvoeringProps> = (
                 className={`px-4 py-2 rounded-md text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer ${
                   aantalGeplaatst === 0
                     ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                    : 'bg-[#003340] hover:bg-[#004558] text-white shadow-2xs'
+                    : 'bg-[#003340] hover:bg-[#004558] text-white'
                 }`}
               >
                 <span>Controleer indeling</span>

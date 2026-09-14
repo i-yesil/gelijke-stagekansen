@@ -16,7 +16,7 @@ export const StickyNav: React.FC<StickyNavProps> = ({
   onSelectStap
 }) => {
   return (
-    <div className="sticky top-0 z-40 bg-[#FBF7F1]/95 backdrop-blur-md border-b border-[#EDE6DA] shadow-xs py-3 px-2 md:px-4 mb-6">
+    <div className="sticky top-0 z-40 bg-[#FBF7F1]/95 backdrop-blur-md border-b border-[#EDE6DA] py-3 px-2 md:px-4 mb-6">
       <div className="max-w-4xl mx-auto">
         {!actieveStap && (
           <p className="text-center text-xs text-[#7A756E] italic mb-2">
@@ -52,7 +52,7 @@ export const StickyNav: React.FC<StickyNavProps> = ({
                   className="relative z-10 flex flex-col items-center cursor-pointer focus:outline-none transition-transform hover:scale-105 active:scale-95"
                 >
                   <div
-                    className={`w-9 h-9 md:w-12 md:h-12 rounded-full flex items-center justify-center font-bold text-sm md:text-lg transition-all duration-200 border-2.5 shadow-xs`}
+                    className={`w-9 h-9 md:w-12 md:h-12 rounded-full flex items-center justify-center font-bold text-sm md:text-lg transition-all duration-200 border-2.5`}
                     style={{
                       backgroundColor: isGedaan || isGeopend ? theme.primary : isActief ? '#ffffff' : theme.lightBg,
                       borderColor: isActief ? theme.primary : (isGedaan || isGeopend) ? theme.primary : theme.border,

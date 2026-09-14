@@ -40,7 +40,7 @@ export const OpdrachtMytheFeit: React.FC<OpdrachtMytheFeitProps> = ({
   const isAfgerond = huidig >= stellingenMF.length;
 
   return (
-    <div className="rounded-xl border-2 border-[#007AA8] overflow-hidden shadow-2xs bg-[#F0F8FC]">
+    <div className="rounded-xl border-2 border-[#007AA8] overflow-hidden bg-[#F0F8FC]">
       {/* Themed Header Bar matching tegel 1 */}
       <div className="bg-[#007AA8] text-white px-3.5 sm:px-4 py-2.5 flex items-center justify-between">
         <div className="flex items-center gap-2">
@@ -50,7 +50,7 @@ export const OpdrachtMytheFeit: React.FC<OpdrachtMytheFeitProps> = ({
           </h3>
         </div>
         <span className="text-[9.5px] font-bold uppercase tracking-wider bg-white/20 text-white px-2 py-0.5 rounded-full">
-          Oefening Stap 1
+          Oefening
         </span>
       </div>
 
@@ -79,7 +79,7 @@ export const OpdrachtMytheFeit: React.FC<OpdrachtMytheFeitProps> = ({
             </button>
           </div>
         ) : (
-          <div className="bg-white border border-[#E8E4DA] rounded-lg p-3.5 sm:p-4 shadow-2xs">
+          <div className="bg-white border border-[#E8E4DA] rounded-lg p-3.5 sm:p-4">
             <div className="flex justify-between items-center text-[11px] text-[#7A756E] mb-2.5">
               <span className="font-bold uppercase tracking-wider text-[#007AA8]">Stelling {huidig + 1} van {stellingenMF.length}</span>
               <span>Kies mythe of feit</span>

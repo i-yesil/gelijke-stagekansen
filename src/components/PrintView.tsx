@@ -1,5 +1,5 @@
 import React from 'react';
-import { ExternalLink, Mic, Headphones, Mail } from 'lucide-react';
+import { ExternalLink, Mic, Headphones, Mail, Check } from 'lucide-react';
 import { bouwstenen, stepThemes } from '../data/bouwstenen';
 
 interface PrintViewProps {
@@ -60,9 +60,12 @@ export const PrintView: React.FC<PrintViewProps> = ({ forceDisplay = false }) =>
             <p>
               Deze aanpak is er voor iedereen die met studenten werkt: onderwijsmanager, stagecoördinator, docent, studieloopbaancoach of stagebegeleider. Wie de student ook spreekt of begeleidt: jij maakt het cruciale verschil in veiligheid, opvang en rugdekking. Met het onderstaande 5-stappenkader heb je altijd duidelijke houvast in handen.
             </p>
-            <div className="pt-1.5 border-t border-[#EDE6DA] text-[#003340]/90">
+            <div className="pt-1.5 border-t border-[#EDE6DA] text-[#003340]/90 space-y-1">
               <p>
-                <strong>De Rotterdamse aanpak:</strong> Hogeschool Rotterdam ondertekende het landelijke <a href="https://www.rijksoverheid.nl/actueel/nieuws/2022/07/13/manifest-ondertekend-om-stagediscriminatie-tegen-te-gaan" target="_blank" rel="noopener noreferrer" className="text-[#007AA8] underline font-semibold">Manifest tegen stagediscriminatie</a> en bouwt, in navolging van de Haagse aanpak, aan een eigen Rotterdamse aanpak. Het doel is helder: minder onderzoek en méér concrete actie in de onderwijspraktijk.
+                Hogeschool Rotterdam ondertekende het landelijke <a href="https://www.rijksoverheid.nl/actueel/nieuws/2022/07/13/manifest-ondertekend-om-stagediscriminatie-tegen-te-gaan" target="_blank" rel="noopener noreferrer" className="text-[#007AA8] underline font-semibold">Manifest tegen stagediscriminatie</a> en bouwt, in navolging van <a href="https://haagseaanpak.nl/" target="_blank" rel="noopener noreferrer" className="text-[#007AA8] underline font-semibold">de Haagse aanpak</a>, aan een eigen Rotterdamse aanpak.
+              </p>
+              <p>
+                In de aflevering <a href="https://echo-net.nl/stagediscriminatie-onder-de-loep/" target="_blank" rel="noopener noreferrer" className="text-[#007AA8] underline font-semibold">“WAAROM?! bestaat stagediscriminatie nog steeds?”</a> vat RAC-docent Mourad el Moussati de urgentie kort samen: minder onderzoek, méér actie. Met deze 5 stappen werken we gezamenlijk aan gelijke stagekansen en sociale veiligheid voor iedere student.
               </p>
             </div>
           </div>
@@ -205,7 +208,7 @@ export const PrintView: React.FC<PrintViewProps> = ({ forceDisplay = false }) =>
                   </h2>
                 </div>
                 <span
-                  className="w-7 h-7 rounded-full flex items-center justify-center font-bold text-[10pt] text-white shadow-2xs"
+                  className="w-7 h-7 rounded-full flex items-center justify-center font-bold text-[10pt] text-white"
                   style={{
                     backgroundColor: theme.primary,
                     color: stap.kleur === '#FCC200' ? '#003340' : '#ffffff'
@@ -227,7 +230,7 @@ export const PrintView: React.FC<PrintViewProps> = ({ forceDisplay = false }) =>
                 <p className="font-medium">{stap.inleiding}</p>
               </div>
 
-              {/* Wat wordt er van jou als begeleider verwacht? */}
+              {/* Wat wordt er van jou als onderwijsprofessional verwacht? */}
               <div className="mb-3">
                 <h3
                   className="text-[9pt] font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5"
@@ -237,7 +240,7 @@ export const PrintView: React.FC<PrintViewProps> = ({ forceDisplay = false }) =>
                     className="w-2 h-2 rounded-full inline-block"
                     style={{ backgroundColor: theme.primary }}
                   />
-                  <span>Wat wordt er van jou als begeleider verwacht?</span>
+                  <span>Wat wordt er van jou als onderwijsprofessional verwacht?</span>
                 </h3>
 
                 <ul className="space-y-2 text-[8pt] text-[#003340] leading-relaxed">
@@ -246,10 +249,21 @@ export const PrintView: React.FC<PrintViewProps> = ({ forceDisplay = false }) =>
                       key={itemIdx}
                       className="p-2 rounded-md bg-[#FAF8F5] border border-[#EDE6DA] print-avoid-break"
                     >
-                      <div
-                        className="text-[#003340]"
-                        dangerouslySetInnerHTML={{ __html: item.tekst }}
-                      />
+                      <div className="flex items-start gap-1.5 text-[#003340]">
+                        <span
+                          className="w-3.5 h-3.5 rounded-full flex items-center justify-center shrink-0 mt-0.5"
+                          style={{
+                            backgroundColor: theme.badgeBg,
+                            border: `1px solid ${theme.border}`
+                          }}
+                        >
+                          <Check className="w-2.5 h-2.5" style={{ color: theme.labelColor }} strokeWidth={2.5} />
+                        </span>
+                        <div
+                          className="flex-1"
+                          dangerouslySetInnerHTML={{ __html: item.tekst }}
+                        />
+                      </div>
 
                       {/* Uitgeklapte Inline Toelichting / Alternatieven / Handvatten */}
                       {item.link?.inline && (

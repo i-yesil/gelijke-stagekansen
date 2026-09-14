@@ -27,7 +27,7 @@ export const OpdrachtCasusKeuzes: React.FC<OpdrachtCasusKeuzesProps> = ({
   };
 
   return (
-    <div className="rounded-xl border-2 border-[#FCC200] overflow-hidden shadow-2xs bg-[#FEFBEA]">
+    <div className="rounded-xl border-2 border-[#FCC200] overflow-hidden bg-[#FEFBEA]">
       {/* Themed Header Bar matching tegel 4 */}
       <div className="bg-[#FCC200] text-[#003340] px-3.5 sm:px-4 py-2.5 flex items-center justify-between">
         <div className="flex items-center gap-2">
@@ -37,7 +37,7 @@ export const OpdrachtCasusKeuzes: React.FC<OpdrachtCasusKeuzesProps> = ({
           </h3>
         </div>
         <span className="text-[9.5px] font-bold uppercase tracking-wider bg-black/10 text-[#003340] px-2 py-0.5 rounded-full">
-          Oefening Stap 4
+          Oefening
         </span>
       </div>
 
@@ -46,7 +46,7 @@ export const OpdrachtCasusKeuzes: React.FC<OpdrachtCasusKeuzesProps> = ({
           Weeg jouw rol als begeleider af in een realistisch dilemma tussen bedrijfsbelang en studentveiligheid.
         </p>
 
-        <div className="bg-white border border-[#E8E4DA] rounded-lg p-3.5 sm:p-4 shadow-2xs">
+        <div className="bg-white border border-[#E8E4DA] rounded-lg p-3.5 sm:p-4">
           <div className="p-3 bg-[#F7EFE3] rounded-lg border border-[#EDE6DA] mb-3 text-xs sm:text-[13px] leading-relaxed text-[#003340]">
             <span className="text-[10.5px] font-bold uppercase tracking-wider text-[#7A756E] block mb-1">
               Casus

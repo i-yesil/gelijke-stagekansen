@@ -68,7 +68,7 @@ export const StepCardsOverview: React.FC<StepCardsOverviewProps> = ({
         </div>
 
         {/* Voortgang: Waar was ik gebleven */}
-        <div className="flex items-center gap-2.5 bg-white px-3 py-1.5 rounded-lg border border-[#E8E4DA] shadow-2xs self-start sm:self-auto shrink-0">
+        <div className="flex items-center gap-2.5 bg-white px-3 py-1.5 rounded-lg border border-[#E8E4DA] self-start sm:self-auto shrink-0">
           <div className="text-left sm:text-right">
             <div className="text-[11px] font-bold text-[#003340] leading-tight">
               Voortgang: {afgerondAantal} van {bouwstenen.length} afgerond
@@ -110,10 +110,10 @@ export const StepCardsOverview: React.FC<StepCardsOverviewProps> = ({
               type="button"
               onClick={() => onSelectStap(b.id)}
               aria-pressed={isActief}
-              className={`text-left p-3.5 sm:p-4 rounded-xl transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden h-full shadow-xs ${
+              className={`text-left p-3.5 sm:p-4 rounded-xl transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden h-full ${
                 isActief
-                  ? 'ring-3 ring-offset-2 ring-[#003340] -translate-y-1 shadow-md'
-                  : 'hover:-translate-y-0.5 hover:shadow-md'
+                  ? 'ring-3 ring-offset-2 ring-[#003340] -translate-y-1'
+                  : 'hover:-translate-y-0.5'
               }`}
               style={{
                 backgroundColor: visual.bg
@@ -122,7 +122,7 @@ export const StepCardsOverview: React.FC<StepCardsOverviewProps> = ({
               <div className="relative z-10 w-full">
                 {/* Bovenste rij: Nummer links, 'Nu geopend' en/of 'Afgerond' vinkje rechts */}
                 <div className="flex items-center justify-between gap-1 mb-3">
-                  <span className="inline-flex items-center justify-center w-7.5 h-7.5 sm:w-8 sm:h-8 rounded-full font-black text-xs sm:text-sm shrink-0 shadow-2xs bg-white text-[#003340]">
+                  <span className="inline-flex items-center justify-center w-7.5 h-7.5 sm:w-8 sm:h-8 rounded-full font-black text-xs sm:text-sm shrink-0 bg-white text-[#003340]">
                     {b.id}
                   </span>
 
@@ -131,7 +131,7 @@ export const StepCardsOverview: React.FC<StepCardsOverviewProps> = ({
                     {/* Nu geopend indicator */}
                     {isActief && (
                       <span
-                        className={`inline-flex items-center gap-0.5 text-[9.5px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full shadow-2xs ${
+                        className={`inline-flex items-center gap-0.5 text-[9.5px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full ${
                           visual.isLightCard
                             ? 'bg-[#003340] text-white'
                             : 'bg-white text-[#003340]'
@@ -153,8 +153,8 @@ export const StepCardsOverview: React.FC<StepCardsOverviewProps> = ({
                         title={onToggleOpdracht ? 'Klik om afgerond-status te wijzigen' : 'Afgerond'}
                         className={`inline-flex items-center gap-1 text-[9.5px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full cursor-pointer transition-transform hover:scale-105 ${
                           visual.isLightCard
-                            ? 'bg-[#003340] text-[#3AB7B0] shadow-2xs'
-                            : 'bg-white text-[#003340] shadow-2xs'
+                            ? 'bg-[#003340] text-[#3AB7B0]'
+                            : 'bg-white text-[#003340]'
                         }`}
                       >
                         <CheckCircle2 className="w-3 h-3 text-[#3AB7B0] shrink-0" />
