@@ -16,7 +16,7 @@ export const Intro: React.FC = () => {
               Deze aanpak is er voor iedereen die met studenten werkt: onderwijsmanager, stagecoördinator, docent, studieloopbaancoach of stagebegeleider. Wie de student ook spreekt of begeleidt: jij maakt het cruciale verschil in veiligheid, opvang en rugdekking. Met het onderstaande 5-stappenkader heb je altijd duidelijke houvast in handen.
             </p>
 
-            <div className="pt-3 border-t border-[#E8E4DA] text-sm md:text-base text-[#003340] space-y-2.5 leading-relaxed">
+            <div className="pt-3 border-t border-[#E8E4DA] text-sm md:text-base text-[#003340] leading-relaxed">
               <p>
                 Hogeschool Rotterdam pakt dit actief aan. Wij ondertekenden{' '}
                 <a
@@ -38,10 +38,7 @@ export const Intro: React.FC = () => {
                   <span>de Haagse aanpak</span>
                   <ExternalLink className="w-3.5 h-3.5 inline-block" />
                 </a>
-                , aan een eigen Rotterdamse aanpak.
-              </p>
-              <p>
-                In de aflevering{' '}
+                , aan een eigen Rotterdamse aanpak. In de aflevering{' '}
                 <a
                   href="https://echo-net.nl/stagediscriminatie-onder-de-loep/"
                   target="_blank"

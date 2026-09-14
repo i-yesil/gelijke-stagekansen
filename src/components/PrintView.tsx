@@ -60,12 +60,9 @@ export const PrintView: React.FC<PrintViewProps> = ({ forceDisplay = false }) =>
             <p>
               Deze aanpak is er voor iedereen die met studenten werkt: onderwijsmanager, stagecoördinator, docent, studieloopbaancoach of stagebegeleider. Wie de student ook spreekt of begeleidt: jij maakt het cruciale verschil in veiligheid, opvang en rugdekking. Met het onderstaande 5-stappenkader heb je altijd duidelijke houvast in handen.
             </p>
-            <div className="pt-1.5 border-t border-[#EDE6DA] text-[#003340]/90 space-y-1">
+            <div className="pt-1.5 border-t border-[#EDE6DA] text-[#003340]/90">
               <p>
-                Hogeschool Rotterdam ondertekende het landelijke <a href="https://www.rijksoverheid.nl/actueel/nieuws/2022/07/13/manifest-ondertekend-om-stagediscriminatie-tegen-te-gaan" target="_blank" rel="noopener noreferrer" className="text-[#007AA8] underline font-semibold">Manifest tegen stagediscriminatie</a> en bouwt, in navolging van <a href="https://haagseaanpak.nl/" target="_blank" rel="noopener noreferrer" className="text-[#007AA8] underline font-semibold">de Haagse aanpak</a>, aan een eigen Rotterdamse aanpak.
-              </p>
-              <p>
-                In de aflevering <a href="https://echo-net.nl/stagediscriminatie-onder-de-loep/" target="_blank" rel="noopener noreferrer" className="text-[#007AA8] underline font-semibold">“WAAROM?! bestaat stagediscriminatie nog steeds?”</a> vat RAC-docent Mourad el Moussati de urgentie kort samen: minder onderzoek, méér actie. Met deze 5 stappen werken we gezamenlijk aan gelijke stagekansen en sociale veiligheid voor iedere student.
+                Hogeschool Rotterdam ondertekende het landelijke <a href="https://www.rijksoverheid.nl/actueel/nieuws/2022/07/13/manifest-ondertekend-om-stagediscriminatie-tegen-te-gaan" target="_blank" rel="noopener noreferrer" className="text-[#007AA8] underline font-semibold">Manifest tegen stagediscriminatie</a> en bouwt, in navolging van <a href="https://haagseaanpak.nl/" target="_blank" rel="noopener noreferrer" className="text-[#007AA8] underline font-semibold">de Haagse aanpak</a>, aan een eigen Rotterdamse aanpak. In de aflevering <a href="https://echo-net.nl/stagediscriminatie-onder-de-loep/" target="_blank" rel="noopener noreferrer" className="text-[#007AA8] underline font-semibold">“WAAROM?! bestaat stagediscriminatie nog steeds?”</a> vat RAC-docent Mourad el Moussati de urgentie kort samen: minder onderzoek, méér actie. Met deze 5 stappen werken we gezamenlijk aan gelijke stagekansen en sociale veiligheid voor iedere student.
               </p>
             </div>
           </div>
