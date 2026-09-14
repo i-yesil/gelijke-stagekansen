@@ -321,23 +321,8 @@ export const StepPanel: React.FC<StepPanelProps> = ({
         </div>
 
         {/* Sectie: Interactieve oefening (over de volledige breedte) */}
-        <div className="pt-6 border-t-2 border-[#EDE6DA] space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
-            <div className="flex items-center gap-2">
-              <span
-                className="w-2.5 h-2.5 rounded-full flex-shrink-0"
-                style={{ backgroundColor: theme.primary }}
-              />
-              <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#003340]">
-                Breng het in de praktijk: Interactieve oefening
-              </h3>
-            </div>
-            <span className="text-[11px] text-[#7A756E]">
-              Toets direct je kennis en reactie in de praktijk
-            </span>
-          </div>
-
-          {/* Oefening vult volledig de pagina / container */}
+        <div className="pt-6 border-t-2 border-[#EDE6DA]">
+          {/* Oefening vult de container */}
           <div className="w-full">
             {stap.id === 1 && (
               <OpdrachtMytheFeit
