@@ -68,7 +68,7 @@ export const bouwstenen: Bouwsteen[] = [
     korteToelichting: "Bewustwording en preventie vormen het fundament. Herken tijdig de signalen van stagediscriminatie en wees alert op eigen aannames.",
     verwachting: [
       {
-        tekst: "<strong>Doorbreek de mythe</strong> dat stagediscriminatie bij jouw opleiding of stagebedrijven niet voorkomt. Weet dat het ontbreken van meldingen niet betekent dat er geen probleem is. Studenten melden zelden uit eigen beweging.",
+        tekst: "<strong>Doorbreek de mythe.</strong> Ga er niet van uit dat stagediscriminatie bij jouw opleiding of stagebedrijven niet voorkomt. Weet dat het ontbreken van meldingen niet betekent dat er geen probleem is. Studenten melden zelden uit eigen beweging.",
         link: {
           label: "Lees het rapport: Stagediscriminatie onder de radar",
           url: "https://www.verwey-jonker.nl/publicatie/stagediscriminatie-onder-de-radar/",

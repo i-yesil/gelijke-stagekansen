@@ -38,7 +38,7 @@ export const Intro: React.FC = () => {
                   <span>de Haagse aanpak</span>
                   <ExternalLink className="w-3.5 h-3.5 inline-block" />
                 </a>
-                , aan een eigen Rotterdamse aanpak. In de aflevering{' '}
+                , aan een eigen Rotterdamse aanpak. In deze aflevering{' '}
                 <a
                   href="https://echo-net.nl/stagediscriminatie-onder-de-loep/"
                   target="_blank"
