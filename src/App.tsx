@@ -99,9 +99,11 @@ export default function App() {
   };
 
   const handleNaarOverzicht = () => {
-    const el = document.getElementById('aanpak-bouwstenen');
+    const el = document.getElementById('aanpak-stappen') || document.getElementById('aanpak-bouwstenen');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -193,9 +195,10 @@ export default function App() {
               alt="Hogeschool Rotterdam Logo"
               className="h-10 md:h-12 w-auto object-contain shrink-0"
             />
-            <div className="text-left not-italic">
+            <div className="text-left not-italic space-y-0.5">
               <p className="font-bold text-[#003340] text-xs md:text-sm leading-tight">Hogeschool Rotterdam</p>
-              <p className="text-[11px] md:text-xs text-[#5A5A55]">Themagroep Studentgerichte Omgeving (TG-SO) 2026</p>
+              <p className="text-[11px] md:text-xs text-[#003340] font-semibold">Onderwijs & Kwaliteit</p>
+              <p className="text-[11px] md:text-xs text-[#5A5A55]">Themagroep Studentgerichte Omgeving 2026</p>
             </div>
           </div>
         </footer>

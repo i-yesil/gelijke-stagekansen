@@ -214,7 +214,7 @@ export const StepPanel: React.FC<StepPanelProps> = ({
             {stap.id}
           </div>
           <div>
-            <div className="flex items-center gap-2 mb-0.5 flex-wrap">
+            <div className="flex items-center gap-2 mb-0.5">
               <span
                 className="text-[9.5px] sm:text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border"
                 style={{
@@ -225,19 +225,6 @@ export const StepPanel: React.FC<StepPanelProps> = ({
               >
                 Stap {stap.id} van {bouwstenen.length}
               </span>
-              <button
-                type="button"
-                onClick={() => onToggleOpdracht && onToggleOpdracht(stap.id)}
-                className={`text-[9.5px] sm:text-[10px] font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1 cursor-pointer transition-all border ${
-                  opdrachtGedaan
-                    ? 'bg-[#EDFAF9] text-[#217772] border-[#3AB7B0]/40 hover:bg-[#DCF5F3]'
-                    : 'bg-white/60 text-[#7A756E] border-[#EDE6DA] hover:bg-white hover:text-[#003340]'
-                }`}
-                title="Klik om status 'Afgerond' handmatig aan of uit te vinken"
-              >
-                <CheckCircle2 className={`w-3 h-3 ${opdrachtGedaan ? 'text-[#3AB7B0]' : 'text-[#A0A09A]'}`} />
-                <span>{opdrachtGedaan ? '✓ Afgerond' : 'Markeer als afgerond'}</span>
-              </button>
             </div>
             <h2 className="text-base sm:text-lg md:text-xl font-black text-[#003340] leading-snug">
               {stap.titel}
@@ -245,15 +232,15 @@ export const StepPanel: React.FC<StepPanelProps> = ({
           </div>
         </div>
 
-        {/* Directe sluitknop bovenaan in de header */}
+        {/* Knop bovenaan in de header om terug omhoog te scrollen naar het overzicht */}
         <button
           onClick={onNaarOverzicht}
           className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#D3104C] hover:bg-[#FDF3F6] border border-[#F0D6DE] px-2.5 py-1.5 rounded-lg cursor-pointer transition-colors shrink-0"
-          title="Sluit stap en ga terug naar het overzicht"
+          title="Scrol omhoog naar het overzicht"
         >
           <ArrowUp className="w-3.5 h-3.5" />
           <span className="hidden sm:inline">Naar overzicht</span>
-          <span className="sm:hidden">Sluit</span>
+          <span className="sm:hidden">Overzicht</span>
         </button>
       </div>
 
@@ -427,32 +414,29 @@ export const StepPanel: React.FC<StepPanelProps> = ({
         {/* Step 5 Closing / Reflection Section (over de volle breedte onderaan stap 5) */}
         {stap.id === 5 && (
           <div className="mt-6 pt-5 border-t-2 border-[#D3104C] space-y-4">
-            <div className="bg-[#003340] text-white p-5 md:p-6 rounded-xl space-y-4 border border-[#004D60]">
-              <div>
-                <h3 className="text-base md:text-lg font-bold text-[#FCC200] mb-1.5">
-                  Elke student telt.
-                </h3>
-                <p className="text-xs md:text-sm text-[#C8D8DC] leading-relaxed">
-                  Stagediscriminatie is geen incidentele uitzondering: het is een structureel vraagstuk dat zich afspeelt op de plekken waar onze studenten leren en werken. Studenten melden zelden uit eigen beweging. Jij bent vaak de eerste die het signaleert, hoort en een veilige haven biedt.
-                </p>
+            <div className="bg-[#003340] text-white p-5 md:p-6 rounded-xl space-y-3.5 border border-[#004D60]">
+              <div className="text-xs font-bold uppercase tracking-wider text-[#FCC200]">
+                Reflectievraag
               </div>
 
-              <div className="pt-3.5 border-t border-[#004D60]">
-                <div className="text-xs font-bold uppercase tracking-wider text-[#FCC200] mb-1.5">
-                  Reflectievraag
-                </div>
-                <p className="text-xs sm:text-sm text-[#F7EFE3] mb-1.5 font-semibold leading-snug">
-                  Welk onderdeel van deze aanpak vraagt voor jou nog de meeste aandacht? Welke concrete eerste stap ga je zetten in je eigen begeleiding of richting je opleiding?
-                </p>
-                <p className="text-[10.5px] sm:text-[11px] text-[#A2B7BD] mb-2.5 leading-relaxed">
-                  Je antwoorden worden nergens naar een server verstuurd en zijn voor niemand anders zichtbaar. Dit veld is puur bedoeld voor het noteren en ordenen van je eigen gedachten (lokaal bewaard in je eigen browser). Wil je je aantekeningen meenemen? Klik hieronder op <em>'Mail naar jezelf'</em> om ze direct in je eigen mailbox te ontvangen.
-                </p>
-                <textarea
-                  value={lokaleReflectie}
-                  onChange={(e) => setLokaleReflectie(e.target.value)}
-                  placeholder="Schrijf hier je gedachten, voornemens of actiepunten op..."
-                  className="w-full min-h-[85px] p-2.5 border border-[#004D60] bg-white rounded-md text-xs sm:text-sm text-[#003340] resize-y focus:outline-none focus:ring-2 focus:ring-[#3AB7B0]"
-                />
+              <p className="text-xs md:text-sm text-[#C8D8DC] leading-relaxed">
+                Stagediscriminatie is geen incidentele uitzondering: het is een structureel vraagstuk dat zich afspeelt op de plekken waar onze studenten leren en werken. Studenten melden zelden uit eigen beweging. Jij bent vaak de eerste die het signaleert, hoort en een veilige haven biedt.
+              </p>
+
+              <p className="text-xs sm:text-sm text-[#F7EFE3] font-semibold leading-snug">
+                Welk onderdeel van deze aanpak vraagt voor jou nog de meeste aandacht? Is er een concrete stap die kunt zetten in je begeleiding van studenten of je opleiding?
+              </p>
+
+              <p className="text-[10.5px] sm:text-[11px] text-[#A2B7BD] leading-relaxed">
+                Je antwoorden worden nergens naar een server verstuurd, niet opgeslagen en zijn voor niemand anders zichtbaar.
+              </p>
+
+              <textarea
+                value={lokaleReflectie}
+                onChange={(e) => setLokaleReflectie(e.target.value)}
+                placeholder="Schrijf hier je gedachten, voornemens of actiepunten op..."
+                className="w-full min-h-[85px] p-2.5 border border-[#004D60] bg-white rounded-md text-xs sm:text-sm text-[#003340] resize-y focus:outline-none focus:ring-2 focus:ring-[#3AB7B0]"
+              />
                 <div className="mt-2.5 flex flex-wrap items-center gap-2">
                   <button
                     onClick={handleReflectieOpslaan}
@@ -554,7 +538,6 @@ export const StepPanel: React.FC<StepPanelProps> = ({
                     </div>
                   </div>
                 )}
-              </div>
             </div>
           </div>
         )}

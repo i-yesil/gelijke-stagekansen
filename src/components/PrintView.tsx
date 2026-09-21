@@ -30,8 +30,11 @@ export const PrintView: React.FC<PrintViewProps> = ({ forceDisplay = false }) =>
                 <span className="text-[12pt] font-black text-[#003340] tracking-tight block leading-none">
                   HOGESCHOOL ROTTERDAM
                 </span>
-                <span className="text-[8pt] text-[#5A5A55] block font-medium mt-0.5">
-                  Themagroep Studentgerichte Omgeving (TG-SO) 2026
+                <span className="text-[8pt] text-[#003340] font-bold block mt-0.5">
+                  Onderwijs & Kwaliteit
+                </span>
+                <span className="text-[7.5pt] text-[#5A5A55] block font-medium">
+                  Themagroep Studentgerichte Omgeving 2026
                 </span>
               </div>
             </div>
@@ -43,7 +46,7 @@ export const PrintView: React.FC<PrintViewProps> = ({ forceDisplay = false }) =>
           </div>
 
           {/* Title */}
-          <div className="mb-3">
+          <div className="mb-2.5">
             <h1 className="text-[16pt] font-black text-[#003340] leading-tight mb-0.5">
               Aanpak gelijke stagekansen
             </h1>
@@ -52,17 +55,28 @@ export const PrintView: React.FC<PrintViewProps> = ({ forceDisplay = false }) =>
             </p>
           </div>
 
+          {/* Definitie kader: Wat is stagediscriminatie? */}
+          <div className="bg-[#FFF8FA] border-l-4 border-[#D3104C] p-2 rounded-r-lg border border-l-0 border-[#FAD8E2] mb-2.5 text-[7.5pt] text-[#003340] leading-relaxed">
+            <strong className="text-[#D3104C] uppercase text-[7pt] tracking-wider block mb-0.5 font-black">
+              Wat is stagediscriminatie?
+            </strong>
+            Afwijzing, uitsluiting of ongelijke behandeling tijdens of het zoeken van de stage op basis van afkomst, kleur, gender, religie, seksuele oriëntatie of (on)zichtbare beperking.
+          </div>
+
           {/* Inleiding text conform webapplicatie */}
           <div className="bg-[#F7EFE3] p-3 rounded-lg border border-[#EDE6DA] mb-3 text-[8pt] leading-relaxed text-[#003340] space-y-1.5">
             <p>
-              Gelijke stagekansen zijn een vanzelfsprekende norm binnen de hogeschool: elke student verdient dezelfde kans op een passende en veilige stage. Toch is stagediscriminatie een reëel en vaak onderschat probleem. Uit onderzoek blijkt dat het voorkomt bij het zoeken naar een stageplek, tijdens sollicitatiegesprekken én op de werkvloer zelf. Veel signalen blijven onder de radar omdat studenten zelden uit zichzelf melding maken door schaamte, twijfel of angst voor vertraging.
+              Gelijke stagekansen zijn een vanzelfsprekende norm binnen de hogeschool; elke student verdient dezelfde kans op een passende en veilige stage. Toch is stagediscriminatie een reëel en vaak onderschat probleem. Uit onderzoek blijkt dat het voorkomt bij het zoeken naar een stageplek, tijdens sollicitatiegesprekken én op de werkvloer zelf. Veel signalen blijven onder de radar omdat studenten zelden uit zichzelf melding maken door schaamte, twijfel of angst voor vertraging.
             </p>
             <p>
-              Deze aanpak is er voor iedereen die met studenten werkt: onderwijsmanager, stagecoördinator, docent, studieloopbaancoach of stagebegeleider. Wie de student ook spreekt of begeleidt: jij maakt het cruciale verschil in veiligheid, opvang en rugdekking. Met het onderstaande 5-stappenkader heb je altijd duidelijke houvast in handen.
+              Deze aanpak is er voor iedereen die met studenten werkt: studieloopbaancoach, studentcoach, stagebegeleider, docent, stagecoördinator of onderwijsmanager. Wie de student ook spreekt of begeleidt; jij maakt het cruciale verschil in veiligheid, opvang en rugdekking. Met het onderstaande 5-stappenkader heb je altijd een duidelijk houvast om stagediscriminatie te herkennen en studenten begeleiding te bieden.
             </p>
-            <div className="pt-1.5 border-t border-[#EDE6DA] text-[#003340]/90">
+            <div className="pt-1.5 border-t border-[#EDE6DA] text-[#003340]/90 space-y-1">
               <p>
-                Hogeschool Rotterdam ondertekende het landelijke <a href="https://www.rijksoverheid.nl/actueel/nieuws/2022/07/13/manifest-ondertekend-om-stagediscriminatie-tegen-te-gaan" target="_blank" rel="noopener noreferrer" className="text-[#007AA8] underline font-semibold">Manifest tegen stagediscriminatie</a> en bouwt, in navolging van <a href="https://haagseaanpak.nl/" target="_blank" rel="noopener noreferrer" className="text-[#007AA8] underline font-semibold">de Haagse aanpak</a>, aan een eigen Rotterdamse aanpak. In deze aflevering <a href="https://echo-net.nl/stagediscriminatie-onder-de-loep/" target="_blank" rel="noopener noreferrer" className="text-[#007AA8] underline font-semibold">“WAAROM?! bestaat stagediscriminatie nog steeds?”</a> vat RAC-docent Mourad el Moussati de urgentie kort samen: minder onderzoek, méér actie. Met deze 5 stappen werken we gezamenlijk aan gelijke stagekansen en sociale veiligheid voor iedere student.
+                Hogeschool Rotterdam pakt stagediscriminatie actief aan. Na het ondertekenen van het landelijke <a href="https://www.rijksoverheid.nl/actueel/nieuws/2022/07/13/manifest-ondertekend-om-stagediscriminatie-tegen-te-gaan" target="_blank" rel="noopener noreferrer" className="text-[#007AA8] underline font-semibold">Manifest tegen stagediscriminatie</a> wordt er in navolging van <a href="https://haagseaanpak.nl/" target="_blank" rel="noopener noreferrer" className="text-[#007AA8] underline font-semibold">de Haagse aanpak</a> gewerkt aan een Rotterdamse aanpak. In de aflevering <a href="https://www.youtube.com/watch?v=_IMXbKP1qt8" target="_blank" rel="noopener noreferrer" className="text-[#007AA8] underline font-semibold">“WAAROM?! bestaat stagediscriminatie nog steeds?”</a> vat RAC-docent Mourad el Moussati de urgentie kort samen: minder onderzoek, méér actie. Met deze 5 stappen werken we gezamenlijk aan gelijke stagekansen en sociale veiligheid voor iedere student.
+              </p>
+              <p>
+                Doorloop de stappen om de aanpak eigen te maken; de oefeningen staan gereed om de informatie te integreren en bij jezelf te toetsen. Je antwoorden zijn voor eigen gebruik en worden nergens geregistreerd of opgeslagen.
               </p>
             </div>
           </div>
@@ -376,10 +390,13 @@ export const PrintView: React.FC<PrintViewProps> = ({ forceDisplay = false }) =>
             </div>
           </div>
 
-          {/* Contact & Advies TG-SO */}
+          {/* Contact & Advies Onderwijs & Kwaliteit */}
           <div className="p-3 rounded-lg border border-[#002630] bg-[#003340] text-[8pt] leading-relaxed text-white mb-3 shadow-none">
+            <div className="text-[7pt] font-bold uppercase tracking-wider text-[#FCC200] mb-0.5">
+              Onderwijs & Kwaliteit
+            </div>
             <p className="text-[#EDE6DA] mb-1.5 text-[7.5pt]">
-              Heb je advies nodig of wil je voor jouw opleidingsteam een aanvraag doen voor professionalisering op maat? Neem contact op met de adviseurs van de Themagroep Studentgerichte Omgeving (TG-SO).
+              Heb je advies nodig of wil je voor jouw opleidingsteam een aanvraag doen voor professionalisering op maat? Neem contact op met de adviseurs van Onderwijs & Kwaliteit.
             </p>
             <p className="font-medium text-white text-[7.5pt]">
               E-mail: <a href="mailto:TG-SO-adviseurs@hr.nl" className="underline font-bold text-white">TG-SO-adviseurs@hr.nl</a>
